@@ -317,8 +317,7 @@ public class TestMatrix implements SparseInterface {
         return minorMatrix;
     }
 
-    @Override
-    public String toString() {
+    public String print() {
         StringBuilder matrix = new StringBuilder(size*size*4);
         RowNode currRow = this.head;
         ColNode currCol = null;
@@ -348,6 +347,31 @@ public class TestMatrix implements SparseInterface {
     }
 
     @Override
+    public String toString() {
+        RowNode currRow = head;
+        ColNode currCol = null;
+        int row = 0;
+        int col;
+
+        StringBuilder myMatrix = new StringBuilder();
+
+        while(currRow != null){
+            row = currRow.rowNum;
+            currCol = currRow.col;
+
+            while (currCol != null) {
+                col = currCol.colNum;
+                myMatrix.append(row + " " + col + " " + currCol.data + "\n");
+                currCol = currCol.next;
+            }
+
+            currRow = currRow.next;
+        }
+
+        return myMatrix.toString();
+    }
+
+    @Override
     public int getSize() {
         return this.size;
     }
@@ -373,7 +397,12 @@ public class TestMatrix implements SparseInterface {
 
         System.out.println(myTest.toString());
 
-        myTest.setSize(2);
+        myTest.setSize(3);
+
+        myTest.addElement(2,2,4);
+        myTest.addElement(0,2,1);
+        myTest.addElement(0,0,3);
+        myTest.addElement(1,1,2);
 
         System.out.println(myTest);
     }
