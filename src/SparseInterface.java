@@ -1,5 +1,7 @@
 public interface SparseInterface {
 
+    //STUDENTS:  DO NOT ALTER.  THIS WILL BE USED TO TEST YOUR CODE
+
     /*
         Should clear the matrix of all entries (make all entries 0)
      */
@@ -33,7 +35,7 @@ public interface SparseInterface {
     public int getElement(int row, int col);
 
     /*
-        Returns the determinant of the matrix calculated recursively (Preferably using Laplace Expansion).
+        Returns the determinant of the matrix calculated recursively (Use the formula provided in the project description).
      */
     public int determinant();
 
