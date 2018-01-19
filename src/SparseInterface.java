@@ -39,6 +39,10 @@ public interface SparseInterface {
      */
     public int determinant();
 
+    /*
+        Returns a new matrix which is the minor of the original (See project description for minor definition).
+     */
+    public SparseInterface minor(int row, int col);
 
     /*
     Should return the nonzero elements of your sparse matrix as a string.
