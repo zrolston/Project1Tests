@@ -1,5 +1,13 @@
 public class Test {
 
+    /*
+        This is a small set of testing code to make sure you are implementing our SparseInterface.
+        You should be getting all "true" for the output
+
+        This is NOT the full extent of our testing, but passing these cases are essential to
+        passing our full tests.
+    */
+
     public static void main(String[] args){
         SparseInterface myTest = new SparseMatrix();
 
@@ -21,9 +29,9 @@ public class Test {
 
         myTest.addElement(2,2,4);
 
-        myTest.addElement(0,0,-3);
+        myTest.addElement(1,0,-3);
 
-        correctString = "0 0 -3\n2 2 4\n";
+        correctString = "1 0 -3\n2 2 4\n";
 
         System.out.println("Your toString is correct: " + correctString.equals(myTest.toString()));
 
@@ -33,8 +41,8 @@ public class Test {
 
         System.out.println("The (1,1) element of the minor is 4: " + (myMinor.getElement(1, 1) == 4));
 
-        myMinor.removeElement(0,0);
+        System.out.println("myTest at 1,1 is 0: " + (myTest.getElement(1,1) == 0));
 
-        System.out.println("myMinor at 0,0 is 0: " + (myMinor.getElement(0,0) == 0));
+        myTest.clear();
     }
 }
