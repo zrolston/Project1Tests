@@ -1,4 +1,4 @@
-public class TestMatrix implements SparseInterface {
+public class SparseMatrix implements SparseInterface {
 
     private RowNode head;
     private int size;
@@ -15,8 +15,8 @@ public class TestMatrix implements SparseInterface {
         RowNode next;
     }
 
-    public TestMatrix(){
-        size = 50;
+    public SparseMatrix(){
+        size = 5;
         head = null;
     }
 
@@ -27,7 +27,7 @@ public class TestMatrix implements SparseInterface {
         return true;
     }
 
-    public TestMatrix(int size){
+    public SparseMatrix(int size){
         this.size = size;
         head = null;
     }
@@ -187,6 +187,10 @@ public class TestMatrix implements SparseInterface {
         //We remove the "head" column list, and thus must remove the row node along with it.
         currRow.col = currRow.col.next;
         if(currRow.col == null) {
+            if(trailRow == null){
+                head = head.next;
+                return;
+            }
             trailRow.next = currRow.next;
         }
         //Thanks garbage collection
@@ -220,7 +224,30 @@ public class TestMatrix implements SparseInterface {
 
     @Override
     public int determinant() {
-        return recurseDet(this);
+        RowNode currRow = this.head;
+        if(this.size < 3){
+            return this.simpleDet();
+        }
+
+        //if any row is missing (entirely 0) then the det is 0
+        int rowCount = 0;
+        while(currRow != null){
+            rowCount++;
+            currRow = currRow.next;
+        }
+        if(rowCount < this.size){
+            return 0;
+        }
+
+        int sum = 0;
+        ColNode currCol = this.head.col;
+        while(currCol != null){
+            int neg = (currCol.colNum%2 == 0) ? 1:-1;
+            sum += neg*(currCol.data)*minor(this.head.rowNum, currCol.colNum).determinant();
+            currCol = currCol.next;
+        }
+
+        return sum;
     }
 
     private int simpleDet(){
@@ -261,35 +288,8 @@ public class TestMatrix implements SparseInterface {
         return (a*d) - (b*c);
     }
 
-    private int recurseDet(TestMatrix test){
-        RowNode currRow = test.head;
-        if(test.size < 3){
-            return test.simpleDet();
-        }
-
-        //if any row is missing (entirely 0) then the det is 0
-        int rowCount = 0;
-        while(currRow != null){
-            rowCount++;
-            currRow = currRow.next;
-        }
-        if(rowCount < test.size){
-            return 0;
-        }
-
-        int sum = 0;
-        ColNode currCol = test.head.col;
-        while(currCol != null){
-            int neg = (currCol.colNum%2 == 0) ? 1:-1;
-            sum += neg*(currCol.data)*recurseDet(minor(test.head.rowNum, currCol.colNum));
-            currCol = currCol.next;
-        }
-
-        return sum;
-    }
-
-    public TestMatrix minor(int row, int col){
-        TestMatrix minorMatrix = new TestMatrix(this.size-1);
+    public SparseInterface minor(int row, int col){
+        SparseMatrix minorMatrix = new SparseMatrix(this.size-1);
         RowNode currRow = this.head;
         ColNode currCol;
 
@@ -374,37 +374,6 @@ public class TestMatrix implements SparseInterface {
     @Override
     public int getSize() {
         return this.size;
-    }
-
-
-    public static void main(String[] args){
-        TestMatrix myTest = new TestMatrix(3);
-        System.out.println(myTest.toString());
-        myTest.addElement(0,0,3);
-        myTest.addElement(0,1,4);
-        myTest.addElement(0,2,1);
-        myTest.addElement(1,0,6);
-        myTest.addElement(1,1,20);
-        myTest.addElement(1,2,2);
-        myTest.addElement(2,0,81);
-        myTest.addElement(2,1,18);
-        myTest.addElement(2,2,65);
-
-        System.out.println(myTest.toString());
-
-        myTest.removeElement(2,2);
-        myTest.removeElement(2,2);
-
-        System.out.println(myTest.toString());
-
-        myTest.setSize(3);
-
-        myTest.addElement(2,2,4);
-        myTest.addElement(0,2,1);
-        myTest.addElement(0,0,3);
-        myTest.addElement(1,1,2);
-
-        System.out.println(myTest);
     }
 }
 
