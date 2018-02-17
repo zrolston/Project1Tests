@@ -49,29 +49,24 @@ class SparseInterfaceTest {
     @Test
     public void determinant() {
         myTest.setSize(2);
-        myTest.addElement(0,0,2);
-        myTest.addElement(0,1,3);
-        myTest.addElement(1,0,1);
-        myTest.addElement(1,1,6);
-
+        int[][] matrix = {
+                {2, 3},
+                {1,6}
+        };
+        this.addTwoDMatrix(matrix);
         System.out.print(myTest.toString());
-
         assertEquals(9, myTest.determinant());
     }
 
     @Test
     public void minor() {
         myTest.setSize(3);
-        myTest.addElement(0,0,2);
-        myTest.addElement(0,1,3);
-        myTest.addElement(0,2,2);
-        myTest.addElement(1,0,1);
-        myTest.addElement(1,1,6);
-        myTest.addElement(1,2,4);
-        myTest.addElement(2,0,1);
-        myTest.addElement(2,1,4);
-        myTest.addElement(2,2,3);
-
+        int[][] matrix = {
+                {2, 3, 2},
+                {1, 6, 4},
+                {1, 4, 3}
+        };
+        this.addTwoDMatrix(matrix);
         SparseInterface minor;
         minor = myTest.minor(0,0);
         assertEquals(6, minor.getElement(0,0));
@@ -90,5 +85,14 @@ class SparseInterfaceTest {
         myTest.setSize(9);
         assertEquals(9, myTest.getSize());
     }
+
+    public void addTwoDMatrix(int[][] matrix) {
+        for(int i = 0; i < matrix.length; ++i){
+            for(int j = 0; j < matrix.length; ++j){
+                myTest.addElement(i, j, matrix[i][j]);
+            }
+        }
+    }
+
 
 }
