@@ -35,6 +35,26 @@ class SparseInterfaceTest {
     }
 
     @Test
+    public void testAddOverwrite() {
+        myTest.setSize(3);
+        myTest.addElement(0, 0, 15);
+        myTest.addElement(0,0,4);
+        int result = myTest.getElement(0, 0);
+        assertEquals(4, result);
+        assertEquals("0 0 4\n", myTest.toString());
+    }
+
+    @Test
+    public void testAddZero() {
+        myTest.setSize(3);
+        myTest.addElement(0, 0, 15);
+        myTest.addElement(0,0,0);
+        int result = myTest.getElement(0, 0);
+        assertEquals(0, result);
+        assertEquals("", myTest.toString());
+    }
+
+    @Test
     public void testAddElementHeadOfFirstRow() {
         myTest.setSize(3);
         myTest.addElement(0, 0, 4);
@@ -97,14 +117,85 @@ class SparseInterfaceTest {
     }
 
     @Test
-    public void removeElement() {
-        myTest.addElement(2, 2, 4);
-        myTest.addElement(1, 0, -3);
+    public void testRemoveElementHeadOfFirstRow() {
+        myTest.setSize(3);
+        myTest.addElement(0, 0, 4);
+        myTest.addElement(0, 1, 5);
 
-        myTest.removeElement(1, 0);
-        assertEquals(0, myTest.getElement(1, 0));
+        myTest.removeElement(0, 0);
+        int result = myTest.getElement(0, 0);
+        assertEquals(0, result);
     }
 
+    @Test
+    public void testRemoveLastElementInMatrix() {
+        myTest.setSize(3);
+        myTest.addElement(0, 0, 4);
+
+        myTest.removeElement(0, 0);
+        int result = myTest.getElement(0, 0);
+        assertEquals(0, result);
+    }
+
+    @Test
+    public void testRemoveElementHeadOfMiddleRow() {
+        myTest.setSize(3);
+        myTest.addElement(0, 0, 3);
+        myTest.addElement(2,1, 5);
+
+        myTest.addElement(1, 1, 2);
+        myTest.addElement(1, 2, 1);
+        myTest.addElement(1, 0, 4);
+
+        myTest.removeElement(1, 0);
+
+        int result = myTest.getElement(1, 0);
+        assertEquals(0, result);
+    }
+
+    @Test
+    public void testRemoveElementMiddleOfMiddleRow() {
+        myTest.setSize(3);
+        myTest.addElement(0, 0, 3);
+        myTest.addElement(2,1, 5);
+
+        myTest.addElement(1, 0, 2);
+        myTest.addElement(1, 2, 1);
+        myTest.addElement(1, 1, 4);
+
+        myTest.removeElement(1, 1);
+
+        int result = myTest.getElement(1, 1);
+        assertEquals(0, result);
+    }
+
+    @Test
+    public void testRemoveElementEndOfMiddleRow() {
+        myTest.setSize(3);
+        myTest.addElement(0, 0, 3);
+        myTest.addElement(2,1, 5);
+
+        myTest.addElement(1, 0, 2);
+        myTest.addElement(1, 1, 1);
+        myTest.addElement(1, 2, 4);
+
+        myTest.removeElement(1, 2);
+
+        int result = myTest.getElement(1, 2);
+        assertEquals(0, result);
+    }
+
+    @Test
+    public void testRemoveElementEndOfLastRow() {
+        myTest.setSize(2);
+        myTest.addElement(0, 0, 1);
+        myTest.addElement(1,0,3);
+        myTest.addElement(1,1,4);
+
+        myTest.removeElement(1,1);
+        int result = myTest.getElement(1, 1);
+        assertEquals(0, result);
+    }
     @Test
     public void testGetElement() {
         myTest.addElement(2, 2, 4);
@@ -136,10 +227,14 @@ class SparseInterfaceTest {
         this.addTwoDMatrix(matrix);
         SparseInterface minor;
         minor = myTest.minor(0, 0);
+        assertEquals(2, minor.getSize());
         assertEquals(6, minor.getElement(0, 0));
         assertEquals(4, minor.getElement(0, 1));
         assertEquals(4, minor.getElement(1, 0));
         assertEquals(3, minor.getElement(1, 1));
+
+        myTest.removeElement(0,0);
+        assertEquals(6, minor.getElement(0, 0));
     }
 
     @Test
@@ -231,8 +326,8 @@ class SparseInterfaceTest {
         assertEquals(20475, myTest.determinant());
      }
 
-     //TODO add edge case test
-        
+
+
     public void addTwoDMatrix(int[][] matrix) {
         for (int i = 0; i < matrix.length; ++i) {
             for (int j = 0; j < matrix.length; ++j) {
