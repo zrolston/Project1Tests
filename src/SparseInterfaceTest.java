@@ -7,7 +7,7 @@ class SparseInterfaceTest {
     public SparseInterface myTest = new SparseMatrix();
 
     @Test
-    public void clear() {
+    public void testClear() {
         myTest.setSize(2);
         int[][] matrix = {
                 {2, 3},
@@ -28,16 +28,71 @@ class SparseInterfaceTest {
     }
 
     @Test
-    public void setSize() {
+    public void testSetSize() {
         myTest.setSize(3);
         int ans = myTest.getSize();
         assertEquals(3, ans);
     }
 
     @Test
-    public void addElement() {
-        myTest.addElement(0, 1, 4);
-        int result = myTest.getElement(0, 1);
+    public void testAddElementHeadOfFirstRow() {
+        myTest.setSize(3);
+        myTest.addElement(0, 0, 4);
+        int result = myTest.getElement(0, 0);
+        assertEquals(4, result);
+        assertEquals("0 0 4\n", myTest.toString());
+    }
+
+    @Test
+    public void testAddElementHeadOfMiddleRow() {
+        myTest.setSize(3);
+        myTest.addElement(0, 0, 3);
+        myTest.addElement(2,1, 5);
+
+        myTest.addElement(1, 1, 2);
+        myTest.addElement(1, 2, 1);
+        myTest.addElement(1, 0, 4);
+
+        int result = myTest.getElement(1, 0);
+        assertEquals(4, result);
+    }
+
+    @Test
+    public void testAddElementMiddleOfMiddleRow() {
+        myTest.setSize(3);
+        myTest.addElement(0, 0, 3);
+        myTest.addElement(2,1, 5);
+
+        myTest.addElement(1, 0, 2);
+        myTest.addElement(1, 2, 1);
+        myTest.addElement(1, 1, 4);
+
+        int result = myTest.getElement(1, 1);
+        assertEquals(4, result);
+    }
+
+    @Test
+    public void testAddElementEndOfMiddleRow() {
+        myTest.setSize(3);
+        myTest.addElement(0, 0, 3);
+        myTest.addElement(2,1, 5);
+
+        myTest.addElement(1, 0, 2);
+        myTest.addElement(1, 1, 1);
+        myTest.addElement(1, 2, 4);
+
+        int result = myTest.getElement(1, 2);
+        assertEquals(4, result);
+    }
+
+    @Test
+    public void testAddElementEndOfLastRow() {
+        myTest.setSize(2);
+        myTest.addElement(0, 0, 1);
+        myTest.addElement(1,0,3);
+        myTest.addElement(1,1,4);
+
+        int result = myTest.getElement(1, 1);
         assertEquals(4, result);
     }
 
@@ -51,7 +106,7 @@ class SparseInterfaceTest {
     }
 
     @Test
-    public void getElement() {
+    public void testGetElement() {
         myTest.addElement(2, 2, 4);
         myTest.addElement(1, 0, -3);
 
@@ -60,7 +115,7 @@ class SparseInterfaceTest {
     }
 
     @Test
-    public void determinant() {
+    public void testDeterminant() {
         myTest.setSize(2);
         int[][] matrix = {
                 {2, 3},
@@ -71,7 +126,7 @@ class SparseInterfaceTest {
     }
 
     @Test
-    public void minor() {
+    public void testMinor() {
         myTest.setSize(3);
         int[][] matrix = {
                 {2, 3, 2},
@@ -88,7 +143,7 @@ class SparseInterfaceTest {
     }
 
     @Test
-    public void toStringTest() {
+    public void testToString() {
         myTest.setSize(2);
         int[][] matrix = {
                 {2, 3},
@@ -100,13 +155,13 @@ class SparseInterfaceTest {
     }
 
     @Test
-    public void getSize() {
+    public void testGetSize() {
         myTest.setSize(9);
         assertEquals(9, myTest.getSize());
     }
 
     @Test
-    public void testCaseOne() {
+    public void testDeterminantOne() {
         myTest.setSize(3);
         int[][] matrix = {
                 {3, 2, 4},
@@ -119,7 +174,7 @@ class SparseInterfaceTest {
     }
 
     @Test
-    public void testCaseTwo() {
+    public void testDeterminantTwo() {
         myTest.setSize(4);
         int[][] matrix = {
                 {7, 8, 4, 5},
@@ -132,7 +187,7 @@ class SparseInterfaceTest {
     }
 
     @Test
-    public void testCaseThree() {
+    public void testDeterminantThree() {
         myTest.setSize(5);
         int[][] matrix = {
                 {1, 2, 8, 3, 0},
@@ -146,7 +201,7 @@ class SparseInterfaceTest {
     }
 
     @Test
-    public void testCaseFour() {
+    public void testDeterminantFour() {
         myTest.setSize(6);
         int[][] matrix = {
                 {0, 2, 3, 1, 2, 3},
@@ -161,7 +216,7 @@ class SparseInterfaceTest {
     }
 
      @Test
-     public void testCaseFive() {
+     public void testDeterminantFive() {
         myTest.setSize(7);
         int[][] matrix = {
                 {5, 5, 6, 1, 2, 4, 6},
