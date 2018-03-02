@@ -1,4 +1,4 @@
-public class SparseMatrix implements SparseInterface {
+public class CorrectMatrix implements SparseInterface {
 
     private RowNode head;
     private int size;
@@ -15,7 +15,7 @@ public class SparseMatrix implements SparseInterface {
         RowNode next;
     }
 
-    public SparseMatrix(){
+    public CorrectMatrix(){
         size = 5;
         head = null;
     }
@@ -27,7 +27,7 @@ public class SparseMatrix implements SparseInterface {
         return true;
     }
 
-    public SparseMatrix(int size){
+    public CorrectMatrix(int size){
         this.size = size;
         head = null;
     }
@@ -289,7 +289,7 @@ public class SparseMatrix implements SparseInterface {
     }
 
     public SparseInterface minor(int row, int col){
-        SparseMatrix minorMatrix = new SparseMatrix(this.size-1);
+        CorrectMatrix minorMatrix = new CorrectMatrix(this.size-1);
         RowNode currRow = this.head;
         ColNode currCol;
 

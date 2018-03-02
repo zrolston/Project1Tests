@@ -6,6 +6,16 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class SparseInterfaceTest {
     public SparseInterface myTest = new SparseMatrix();
 
+    //Score:  5
+    @Test
+    public void testMemory() {
+        myTest.setSize(10000000);
+        myTest.addElement(1, 1, 5);
+
+        assertEquals(0, myTest.determinant());
+    }
+
+    //Score:  1
     @Test
     public void testClear() {
         myTest.setSize(2);
@@ -27,13 +37,18 @@ class SparseInterfaceTest {
         assertEquals(0, myTest.getElement(1, 1));
     }
 
+    //Score:  1
     @Test
     public void testSetSize() {
+        myTest.addElement(0,0, 4);
         myTest.setSize(3);
+
         int ans = myTest.getSize();
         assertEquals(3, ans);
+        assertEquals("", myTest.toString());
     }
 
+    //Score:  2
     @Test
     public void testAddOverwrite() {
         myTest.setSize(3);
@@ -44,6 +59,7 @@ class SparseInterfaceTest {
         assertEquals("0 0 4\n", myTest.toString());
     }
 
+    //Score:  2
     @Test
     public void testAddZero() {
         myTest.setSize(3);
@@ -54,6 +70,7 @@ class SparseInterfaceTest {
         assertEquals("", myTest.toString());
     }
 
+    //Score:  2
     @Test
     public void testAddElementHeadOfFirstRow() {
         myTest.setSize(3);
@@ -63,6 +80,7 @@ class SparseInterfaceTest {
         assertEquals("0 0 4\n", myTest.toString());
     }
 
+    //Score:  2
     @Test
     public void testAddElementHeadOfMiddleRow() {
         myTest.setSize(3);
@@ -77,6 +95,7 @@ class SparseInterfaceTest {
         assertEquals(4, result);
     }
 
+    //Score:  2
     @Test
     public void testAddElementMiddleOfMiddleRow() {
         myTest.setSize(3);
@@ -91,6 +110,7 @@ class SparseInterfaceTest {
         assertEquals(4, result);
     }
 
+    //Score:  2
     @Test
     public void testAddElementEndOfMiddleRow() {
         myTest.setSize(3);
@@ -105,6 +125,7 @@ class SparseInterfaceTest {
         assertEquals(4, result);
     }
 
+    //Score:  2
     @Test
     public void testAddElementEndOfLastRow() {
         myTest.setSize(2);
@@ -116,6 +137,7 @@ class SparseInterfaceTest {
         assertEquals(4, result);
     }
 
+    //Score:  2
     @Test
     public void testRemoveElementHeadOfFirstRow() {
         myTest.setSize(3);
@@ -127,6 +149,7 @@ class SparseInterfaceTest {
         assertEquals(0, result);
     }
 
+    //Score:  2
     @Test
     public void testRemoveLastElementInMatrix() {
         myTest.setSize(3);
@@ -137,6 +160,7 @@ class SparseInterfaceTest {
         assertEquals(0, result);
     }
 
+    //Score:  2
     @Test
     public void testRemoveElementHeadOfMiddleRow() {
         myTest.setSize(3);
@@ -153,6 +177,7 @@ class SparseInterfaceTest {
         assertEquals(0, result);
     }
 
+    //Score:  2
     @Test
     public void testRemoveElementMiddleOfMiddleRow() {
         myTest.setSize(3);
@@ -169,6 +194,7 @@ class SparseInterfaceTest {
         assertEquals(0, result);
     }
 
+    //Score:  2
     @Test
     public void testRemoveElementEndOfMiddleRow() {
         myTest.setSize(3);
@@ -185,6 +211,7 @@ class SparseInterfaceTest {
         assertEquals(0, result);
     }
 
+    //Score:  2
     @Test
     public void testRemoveElementEndOfLastRow() {
         myTest.setSize(2);
@@ -196,8 +223,10 @@ class SparseInterfaceTest {
         int result = myTest.getElement(1, 1);
         assertEquals(0, result);
     }
+
+    //Score:  2
     @Test
-    public void testGetElement() {
+    public void testGetExistingElement() {
         myTest.addElement(2, 2, 4);
         myTest.addElement(1, 0, -3);
 
@@ -205,8 +234,18 @@ class SparseInterfaceTest {
         assertEquals(-3, myTest.getElement(1, 0));
     }
 
+    //Score:
     @Test
-    public void testDeterminant() {
+    public void testGetNonExistantElement() {
+        myTest.addElement(2, 2, 4);
+        myTest.addElement(1, 0, -3);
+
+        assertEquals(0, myTest.getElement(1, 1));
+    }
+
+    //Score:  5
+    @Test
+    public void testBaseDeterminant() {
         myTest.setSize(2);
         int[][] matrix = {
                 {2, 3},
@@ -216,6 +255,7 @@ class SparseInterfaceTest {
         assertEquals(9, myTest.determinant());
     }
 
+    //Score:  2
     @Test
     public void testMinor() {
         myTest.setSize(3);
@@ -237,6 +277,8 @@ class SparseInterfaceTest {
         assertEquals(6, minor.getElement(0, 0));
     }
 
+    /*
+    //Score: 3
     @Test
     public void testToString() {
         myTest.setSize(2);
@@ -248,13 +290,16 @@ class SparseInterfaceTest {
         String ans = "0 0 2\n0 1 3\n1 0 1\n1 1 6\n";
         assertTrue(ans.equals(myTest.toString()));
     }
+    */
 
+    //Score:  1
     @Test
     public void testGetSize() {
         myTest.setSize(9);
         assertEquals(9, myTest.getSize());
     }
 
+    //Score:  5
     @Test
     public void testDeterminantOne() {
         myTest.setSize(3);
@@ -268,6 +313,7 @@ class SparseInterfaceTest {
 
     }
 
+    //Score:  5
     @Test
     public void testDeterminantTwo() {
         myTest.setSize(4);
@@ -281,6 +327,7 @@ class SparseInterfaceTest {
         assertEquals(112, myTest.determinant());
     }
 
+    //Score: 5
     @Test
     public void testDeterminantThree() {
         myTest.setSize(5);
@@ -295,6 +342,7 @@ class SparseInterfaceTest {
         assertEquals(3822, myTest.determinant());
     }
 
+    //Score:  5
     @Test
     public void testDeterminantFour() {
         myTest.setSize(6);
@@ -310,6 +358,7 @@ class SparseInterfaceTest {
         assertEquals(3456, myTest.determinant());
     }
 
+    //Score:  5
      @Test
      public void testDeterminantFive() {
         myTest.setSize(7);
