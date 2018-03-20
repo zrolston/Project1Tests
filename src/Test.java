@@ -63,5 +63,13 @@ public class Test {
         //Note that adding 0 to the matrix overwrites the data at that position to 0 as defined in the interface description
         //Because we are not storing 0 values, we can remove the element at that position.
         System.out.println("toString is correct: " + correctString.equals(myTest.toString()));
+
+        myTest.addElement(0, 0, 16);
+        myTest.addElement(0, 1, 4);
+        myTest.addElement(1, 1, 9);
+        myTest.addElement(2, 2, 7);
+
+        System.out.println("The determinant is 1008: " + (myTest.determinant() == 1008));
+
     }
 }
