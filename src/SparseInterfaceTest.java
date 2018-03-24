@@ -1,13 +1,12 @@
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Test;
 
-import static java.time.Duration.ofSeconds;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTimeout;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 class SparseInterfaceTest {
     public SparseInterface myTest = new SingleListMatrix(5);
+    public int score;
 
 
     //Score:  5
@@ -16,9 +15,11 @@ class SparseInterfaceTest {
 
         myTest.setSize(10000000);
         myTest.addElement(1, 1, 5);
-
         myTest.determinant();
+        assertEquals(0, myTest.determinant());
 
+        if( 0 == myTest.determinant())
+            System.out.println(5);
     }
 
 
@@ -32,6 +33,7 @@ class SparseInterfaceTest {
         };
 
         int[][] matrixOfZeros = {
+
                 {0, 0},
                 {0, 0}
         };
@@ -42,6 +44,9 @@ class SparseInterfaceTest {
         assertEquals(0, myTest.getElement(0, 1));
         assertEquals(0, myTest.getElement(1, 0));
         assertEquals(0, myTest.getElement(1, 1));
+        if( 0 == myTest.getElement(0,0) && 0 == myTest.getElement(0,1)
+                && 0 == myTest.getElement(1,0) && 0 == myTest.getElement(1,1))
+            System.out.println(1);
     }
 
     //Score:  1
@@ -53,6 +58,8 @@ class SparseInterfaceTest {
         int ans = myTest.getSize();
         assertEquals(3, ans);
         assertEquals("", myTest.toString());
+        if( 3 == ans && "".equals(myTest.toString()))
+            System.out.println(1);
     }
 
     //Score:  2
@@ -64,6 +71,9 @@ class SparseInterfaceTest {
         int result = myTest.getElement(0, 0);
         assertEquals(4, result);
         assertEquals("0 0 4\n", myTest.toString());
+
+        if(4 == result && "0 0 4\n".equals(myTest.toString()))
+            System.out.println(2);
     }
 
     //Score:  2
@@ -75,6 +85,8 @@ class SparseInterfaceTest {
         int result = myTest.getElement(0, 0);
    //     assertEquals(0, result);
         assertEquals("", myTest.toString());
+        if("".equals(myTest.toString()))
+            System.out.println(2);
     }
 
     //Score:  1
@@ -85,6 +97,8 @@ class SparseInterfaceTest {
         int result = myTest.getElement(0, 0);
         assertEquals(4, result);
         assertEquals("0 0 4\n", myTest.toString());
+        if(4 == result && "0 0 4\n".equals(myTest.toString()))
+            System.out.println(1);
     }
 
     //Score:  1
@@ -100,6 +114,8 @@ class SparseInterfaceTest {
 
         int result = myTest.getElement(1, 0);
         assertEquals(4, result);
+        if(4 == result)
+            System.out.println(1);
     }
 
     //Score:  1
@@ -115,6 +131,8 @@ class SparseInterfaceTest {
 
         int result = myTest.getElement(1, 1);
         assertEquals(4, result);
+        if(4 == result)
+            System.out.println(1);
     }
 
     //Score:  1
@@ -130,6 +148,8 @@ class SparseInterfaceTest {
 
         int result = myTest.getElement(1, 2);
         assertEquals(4, result);
+        if(4 == result)
+            System.out.println(1);
     }
 
     //Score:  1
@@ -142,6 +162,8 @@ class SparseInterfaceTest {
 
         int result = myTest.getElement(1, 1);
         assertEquals(4, result);
+        if(4 == result)
+            System.out.println(1);
     }
 
     //Score:  1
@@ -151,6 +173,8 @@ class SparseInterfaceTest {
         myTest.addElement(0, 0, 4);
 
         assertEquals("0 0 4\n", myTest.toString());
+        if("0 0 4\n".equals(myTest.toString()))
+            System.out.println(1);
     }
 
     //Score:  1
@@ -166,6 +190,8 @@ class SparseInterfaceTest {
 
 
         assertEquals("0 0 3\n1 0 4\n1 1 2\n1 2 1\n2 1 5\n", myTest.toString());
+        if("0 0 3\n1 0 4\n1 1 2\n1 2 1\n2 1 5\n".equals(myTest.toString()))
+            System.out.println(1);
     }
 
     //Score:  1
@@ -180,6 +206,8 @@ class SparseInterfaceTest {
         myTest.addElement(1, 1, 4);
 
         assertEquals("0 0 3\n1 0 2\n1 1 4\n1 2 1\n2 1 5\n", myTest.toString());
+        if("0 0 3\n1 0 2\n1 1 4\n1 2 1\n2 1 5\n".equals(myTest.toString()))
+            System.out.println(1);
     }
 
     //Score:  1
@@ -194,6 +222,8 @@ class SparseInterfaceTest {
         myTest.addElement(1, 2, 4);
 
         assertEquals("0 0 3\n1 0 2\n1 1 1\n1 2 4\n2 1 5\n", myTest.toString());
+        if("0 0 3\n1 0 2\n1 1 1\n1 2 4\n2 1 5\n".equals(myTest.toString()))
+            System.out.println(1);
     }
 
     //Score:  1
@@ -205,6 +235,8 @@ class SparseInterfaceTest {
         myTest.addElement(1,1,4);
 
         assertEquals("0 0 1\n1 0 3\n1 1 4\n", myTest.toString());
+        if("0 0 1\n1 0 3\n1 1 4\n".equals(myTest.toString()))
+            System.out.println(1);
     }
 
     //Score:  1
@@ -217,6 +249,8 @@ class SparseInterfaceTest {
         myTest.removeElement(0, 0);
         int result = myTest.getElement(0, 0);
         assertEquals(0, result);
+        if(0 == result)
+            System.out.println(1);
     }
 
     //Score:  1
@@ -228,6 +262,8 @@ class SparseInterfaceTest {
         myTest.removeElement(0, 0);
         int result = myTest.getElement(0, 0);
         assertEquals(0, result);
+        if(0 == result)
+            System.out.println(1);
     }
 
     //Score:  1
@@ -245,6 +281,8 @@ class SparseInterfaceTest {
 
         int result = myTest.getElement(1, 0);
         assertEquals(0, result);
+        if(0 == result)
+            System.out.println(1);
     }
 
     //Score:  1
@@ -262,6 +300,8 @@ class SparseInterfaceTest {
 
         int result = myTest.getElement(1, 1);
         assertEquals(0, result);
+        if( 0 == result)
+            System.out.println(1);
     }
 
     //Score:  1
@@ -279,6 +319,8 @@ class SparseInterfaceTest {
 
         int result = myTest.getElement(1, 2);
         assertEquals(0, result);
+        if( 0 == result)
+            System.out.println(1);
     }
 
     //Score:  1
@@ -292,6 +334,8 @@ class SparseInterfaceTest {
         myTest.removeElement(1,1);
         int result = myTest.getElement(1, 1);
         assertEquals(0, result);
+        if( 0 == result)
+            System.out.println(1);
     }
 
     //Score:  1
@@ -304,6 +348,8 @@ class SparseInterfaceTest {
         myTest.removeElement(0, 0);
         String result = myTest.toString();
         assertEquals("0 1 5\n", result);
+        if("0 1 5\n".equals(result))
+            System.out.println(1);
     }
 
     //Score:  1
@@ -314,6 +360,8 @@ class SparseInterfaceTest {
 
         myTest.removeElement(0, 0);
         assertEquals("", myTest.toString());
+        if("".equals(myTest.toString()))
+            System.out.println(1);
     }
 
     //Score:  1
@@ -330,6 +378,8 @@ class SparseInterfaceTest {
         myTest.removeElement(1, 0);
 
         assertEquals("0 0 3\n1 1 2\n1 2 1\n2 1 5\n", myTest.toString());
+        if("0 0 3\n1 1 2\n1 2 1\n2 1 5\n".equals(myTest.toString()))
+            System.out.println(1);
     }
 
     //Score:  1
@@ -346,6 +396,9 @@ class SparseInterfaceTest {
         myTest.removeElement(1, 1);
 
         assertEquals("0 0 3\n1 0 2\n1 2 1\n2 1 5\n", myTest.toString());
+        if("0 0 3\n1 0 2\n1 2 1\n2 1 5\n".equals(myTest.toString()))
+            System.out.println(1);
+
 
     }
 
@@ -363,6 +416,9 @@ class SparseInterfaceTest {
         myTest.removeElement(1, 2);
 
         assertEquals("0 0 3\n1 0 2\n1 1 1\n2 1 5\n", myTest.toString());
+        if("0 0 3\n1 0 2\n1 1 1\n2 1 5\n".equals(myTest.toString()))
+            System.out.println(1);
+
     }
 
     //Score:  1
@@ -376,6 +432,8 @@ class SparseInterfaceTest {
         myTest.removeElement(1,1);
 
         assertEquals("0 0 1\n1 0 3\n", myTest.toString());
+        if("0 0 1\n1 0 3\n".equals(myTest.toString()))
+            System.out.println(1);
     }
 
 
@@ -388,6 +446,8 @@ class SparseInterfaceTest {
 
         assertEquals(4, myTest.getElement(2, 2));
         assertEquals(-3, myTest.getElement(1, 0));
+        if( 4 == myTest.getElement(2,2) && -3 == myTest.getElement(1,0))
+            System.out.println(1);
     }
 
     //Score: 2
@@ -397,6 +457,8 @@ class SparseInterfaceTest {
         myTest.addElement(1, 0, -3);
 
         assertEquals(0, myTest.getElement(1, 1));
+        if(0 == myTest.getElement(1,1))
+            System.out.println(2);
     }
 
     //Score:  5
@@ -409,6 +471,8 @@ class SparseInterfaceTest {
         };
         this.addTwoDMatrix(matrix);
         assertEquals(9, myTest.determinant());
+        if(9 == myTest.determinant())
+            System.out.println(5);
     }
 
     //Score:  3
@@ -431,6 +495,10 @@ class SparseInterfaceTest {
 
         myTest.removeElement(0,0);
         assertEquals(6, minor.getElement(0, 0));
+
+        if(2 == minor.getSize() && 6 == minor.getElement(0,0) && 4 == minor.getElement(0,1) &&
+                4 == minor.getElement(1,0) && 3== minor.getElement(1,1))
+            System.out.println(3);
     }
 
 
@@ -439,6 +507,8 @@ class SparseInterfaceTest {
     public void testGetSize() {
         myTest.setSize(9);
         assertEquals(9, myTest.getSize());
+        if( 9 == myTest.getSize())
+            System.out.println(1);
     }
 
     //Score:  5
@@ -452,6 +522,8 @@ class SparseInterfaceTest {
         };
         this.addTwoDMatrix(matrix);
         assertEquals(-2, myTest.determinant());
+        if(5 == myTest.determinant())
+            System.out.println(5);
 
     }
 
@@ -467,6 +539,8 @@ class SparseInterfaceTest {
         };
         this.addTwoDMatrix(matrix);
         assertEquals(112, myTest.determinant());
+        if(112 == myTest.determinant())
+            System.out.println(5);
     }
 
     //Score: 5
@@ -482,6 +556,8 @@ class SparseInterfaceTest {
         };
         this.addTwoDMatrix(matrix);
         assertEquals(3822, myTest.determinant());
+        if(3822 == myTest.determinant())
+            System.out.println(5);
     }
 
     //Score:  5
@@ -498,6 +574,8 @@ class SparseInterfaceTest {
         };
         this.addTwoDMatrix(matrix);
         assertEquals(3456, myTest.determinant());
+        if(3456 == myTest.determinant())
+            System.out.println(5);
     }
 
     //Score:  5
@@ -515,6 +593,8 @@ class SparseInterfaceTest {
         };
         this.addTwoDMatrix(matrix);
         assertEquals(20475, myTest.determinant());
+        if(20475 == myTest.determinant())
+            System.out.println(5);
      }
 
 
