@@ -1,11 +1,13 @@
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Test;
 
+import static java.time.Duration.ofMillis;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTimeoutPreemptively;
 
 
 class SparseInterfaceTest {
-    public SparseInterface myTest = new SingleListMatrix(5);
+    public SparseInterface myTest = new SparseMatrix();
     public int score;
 
 
@@ -13,10 +15,14 @@ class SparseInterfaceTest {
     @Test
     public void testMemory() {
 
-        myTest.setSize(10000000);
-        myTest.addElement(1, 1, 5);
-        myTest.determinant();
-        assertEquals(0, myTest.determinant());
+
+        assertTimeoutPreemptively(ofMillis(5000), () -> {
+            // Simulate task that takes more than 10 ms.
+            myTest.setSize(10000000);
+            myTest.addElement(1, 1, 5);
+
+            assertEquals(0, myTest.determinant());
+        });
 
         if( 0 == myTest.determinant())
             System.out.println(5);
@@ -79,12 +85,14 @@ class SparseInterfaceTest {
     //Score:  2
     @Test
     public void testAddZero() {
-        myTest.setSize(3);
-        myTest.addElement(0, 0, 15);
-        myTest.addElement(0,0,0);
-        int result = myTest.getElement(0, 0);
-   //     assertEquals(0, result);
-        assertEquals("", myTest.toString());
+        assertTimeoutPreemptively(ofMillis(1000), () -> {
+            myTest.setSize(3);
+            myTest.addElement(0, 0, 15);
+            myTest.addElement(0,0,0);
+
+            assertEquals("", myTest.toString());
+        });
+
         if("".equals(myTest.toString()))
             System.out.println(2);
     }
@@ -92,25 +100,33 @@ class SparseInterfaceTest {
     //Score:  1
     @Test
     public void testAddElementHeadOfFirstRowGet() {
-        myTest.setSize(3);
-        myTest.addElement(0, 0, 4);
-        int result = myTest.getElement(0, 0);
+        int result = 0;
+        assertTimeoutPreemptively(ofMillis(1000), () -> {
+            myTest.setSize(3);
+            myTest.addElement(0, 0, 4);
+        });
+
+        result = myTest.getElement(0, 0);
         assertEquals(4, result);
-        assertEquals("0 0 4\n", myTest.toString());
-        if(4 == result && "0 0 4\n".equals(myTest.toString()))
+        if(4 == result)
             System.out.println(1);
     }
 
     //Score:  1
     @Test
     public void testAddElementHeadOfMiddleRowGet() {
-        myTest.setSize(3);
-        myTest.addElement(0, 0, 3);
-        myTest.addElement(2,1, 5);
 
-        myTest.addElement(1, 1, 2);
-        myTest.addElement(1, 2, 1);
-        myTest.addElement(1, 0, 4);
+        assertTimeoutPreemptively(ofMillis(1000), () -> {
+            myTest.setSize(3);
+            myTest.addElement(0, 0, 3);
+            myTest.addElement(2,1, 5);
+
+            myTest.addElement(1, 1, 2);
+            myTest.addElement(1, 2, 1);
+            myTest.addElement(1, 0, 4);
+        });
+
+
 
         int result = myTest.getElement(1, 0);
         assertEquals(4, result);
@@ -121,13 +137,16 @@ class SparseInterfaceTest {
     //Score:  1
     @Test
     public void testAddElementMiddleOfMiddleRowGet() {
-        myTest.setSize(3);
-        myTest.addElement(0, 0, 3);
-        myTest.addElement(2,1, 5);
 
-        myTest.addElement(1, 0, 2);
-        myTest.addElement(1, 2, 1);
-        myTest.addElement(1, 1, 4);
+        assertTimeoutPreemptively(ofMillis(1000), () -> {
+            myTest.setSize(3);
+            myTest.addElement(0, 0, 3);
+            myTest.addElement(2,1, 5);
+
+            myTest.addElement(1, 0, 2);
+            myTest.addElement(1, 2, 1);
+            myTest.addElement(1, 1, 4);
+        });
 
         int result = myTest.getElement(1, 1);
         assertEquals(4, result);
@@ -138,13 +157,16 @@ class SparseInterfaceTest {
     //Score:  1
     @Test
     public void testAddElementEndOfMiddleRowGet() {
-        myTest.setSize(3);
-        myTest.addElement(0, 0, 3);
-        myTest.addElement(2,1, 5);
 
-        myTest.addElement(1, 0, 2);
-        myTest.addElement(1, 1, 1);
-        myTest.addElement(1, 2, 4);
+        assertTimeoutPreemptively(ofMillis(1000), () -> {
+            myTest.setSize(3);
+            myTest.addElement(0, 0, 3);
+            myTest.addElement(2,1, 5);
+
+            myTest.addElement(1, 0, 2);
+            myTest.addElement(1, 1, 1);
+            myTest.addElement(1, 2, 4);
+        });
 
         int result = myTest.getElement(1, 2);
         assertEquals(4, result);
@@ -155,10 +177,13 @@ class SparseInterfaceTest {
     //Score:  1
     @Test
     public void testAddElementEndOfLastRowGet() {
-        myTest.setSize(2);
-        myTest.addElement(0, 0, 1);
-        myTest.addElement(1,0,3);
-        myTest.addElement(1,1,4);
+
+        assertTimeoutPreemptively(ofMillis(1000), () -> {
+            myTest.setSize(2);
+            myTest.addElement(0, 0, 1);
+            myTest.addElement(1,0,3);
+            myTest.addElement(1,1,4);
+        });
 
         int result = myTest.getElement(1, 1);
         assertEquals(4, result);
@@ -169,8 +194,11 @@ class SparseInterfaceTest {
     //Score:  1
     @Test
     public void testAddElementHeadOfFirstRowString() {
-        myTest.setSize(3);
-        myTest.addElement(0, 0, 4);
+
+        assertTimeoutPreemptively(ofMillis(1000), () -> {
+            myTest.setSize(3);
+            myTest.addElement(0, 0, 4);
+        });
 
         assertEquals("0 0 4\n", myTest.toString());
         if("0 0 4\n".equals(myTest.toString()))
@@ -180,14 +208,16 @@ class SparseInterfaceTest {
     //Score:  1
     @Test
     public void testAddElementHeadOfMiddleRowString() {
-        myTest.setSize(3);
-        myTest.addElement(0, 0, 3);
-        myTest.addElement(2,1, 5);
 
-        myTest.addElement(1, 1, 2);
-        myTest.addElement(1, 2, 1);
-        myTest.addElement(1, 0, 4);
+        assertTimeoutPreemptively(ofMillis(1000), () -> {
+            myTest.setSize(3);
+            myTest.addElement(0, 0, 3);
+            myTest.addElement(2,1, 5);
 
+            myTest.addElement(1, 1, 2);
+            myTest.addElement(1, 2, 1);
+            myTest.addElement(1, 0, 4);
+        });
 
         assertEquals("0 0 3\n1 0 4\n1 1 2\n1 2 1\n2 1 5\n", myTest.toString());
         if("0 0 3\n1 0 4\n1 1 2\n1 2 1\n2 1 5\n".equals(myTest.toString()))
@@ -197,13 +227,16 @@ class SparseInterfaceTest {
     //Score:  1
     @Test
     public void testAddElementMiddleOfMiddleRowString() {
-        myTest.setSize(3);
-        myTest.addElement(0, 0, 3);
-        myTest.addElement(2,1, 5);
 
-        myTest.addElement(1, 0, 2);
-        myTest.addElement(1, 2, 1);
-        myTest.addElement(1, 1, 4);
+        assertTimeoutPreemptively(ofMillis(1000), () -> {
+            myTest.setSize(3);
+            myTest.addElement(0, 0, 3);
+            myTest.addElement(2,1, 5);
+
+            myTest.addElement(1, 0, 2);
+            myTest.addElement(1, 2, 1);
+            myTest.addElement(1, 1, 4);
+        });
 
         assertEquals("0 0 3\n1 0 2\n1 1 4\n1 2 1\n2 1 5\n", myTest.toString());
         if("0 0 3\n1 0 2\n1 1 4\n1 2 1\n2 1 5\n".equals(myTest.toString()))
@@ -213,13 +246,15 @@ class SparseInterfaceTest {
     //Score:  1
     @Test
     public void testAddElementEndOfMiddleRowString() {
-        myTest.setSize(3);
-        myTest.addElement(0, 0, 3);
-        myTest.addElement(2,1, 5);
+        assertTimeoutPreemptively(ofMillis(1000), () -> {
+            myTest.setSize(3);
+            myTest.addElement(0, 0, 3);
+            myTest.addElement(2,1, 5);
 
-        myTest.addElement(1, 0, 2);
-        myTest.addElement(1, 1, 1);
-        myTest.addElement(1, 2, 4);
+            myTest.addElement(1, 0, 2);
+            myTest.addElement(1, 1, 1);
+            myTest.addElement(1, 2, 4);
+        });
 
         assertEquals("0 0 3\n1 0 2\n1 1 1\n1 2 4\n2 1 5\n", myTest.toString());
         if("0 0 3\n1 0 2\n1 1 1\n1 2 4\n2 1 5\n".equals(myTest.toString()))
@@ -229,10 +264,12 @@ class SparseInterfaceTest {
     //Score:  1
     @Test
     public void testAddElementEndOfLastRowString() {
-        myTest.setSize(2);
-        myTest.addElement(0, 0, 1);
-        myTest.addElement(1,0,3);
-        myTest.addElement(1,1,4);
+        assertTimeoutPreemptively(ofMillis(1000), () -> {
+            myTest.setSize(2);
+            myTest.addElement(0, 0, 1);
+            myTest.addElement(1,0,3);
+            myTest.addElement(1,1,4);
+        });
 
         assertEquals("0 0 1\n1 0 3\n1 1 4\n", myTest.toString());
         if("0 0 1\n1 0 3\n1 1 4\n".equals(myTest.toString()))
@@ -242,11 +279,14 @@ class SparseInterfaceTest {
     //Score:  1
     @Test
     public void testRemoveElementHeadOfFirstRowGet() {
-        myTest.setSize(3);
-        myTest.addElement(0, 0, 4);
-        myTest.addElement(0, 1, 5);
+        assertTimeoutPreemptively(ofMillis(1000), () -> {
+            myTest.setSize(3);
+            myTest.addElement(0, 0, 4);
+            myTest.addElement(0, 1, 5);
 
-        myTest.removeElement(0, 0);
+            myTest.removeElement(0, 0);
+        });
+
         int result = myTest.getElement(0, 0);
         assertEquals(0, result);
         if(0 == result)
@@ -256,10 +296,13 @@ class SparseInterfaceTest {
     //Score:  1
     @Test
     public void testRemoveLastElementInMatrixGet() {
-        myTest.setSize(3);
-        myTest.addElement(0, 0, 4);
+        assertTimeoutPreemptively(ofMillis(1000), () -> {
+            myTest.setSize(3);
+            myTest.addElement(0, 0, 4);
 
-        myTest.removeElement(0, 0);
+            myTest.removeElement(0, 0);
+        });
+
         int result = myTest.getElement(0, 0);
         assertEquals(0, result);
         if(0 == result)
@@ -269,15 +312,17 @@ class SparseInterfaceTest {
     //Score:  1
     @Test
     public void testRemoveElementHeadOfMiddleRowGet() {
-        myTest.setSize(3);
-        myTest.addElement(0, 0, 3);
-        myTest.addElement(2,1, 5);
+        assertTimeoutPreemptively(ofMillis(1000), () -> {
+            myTest.setSize(3);
+            myTest.addElement(0, 0, 3);
+            myTest.addElement(2,1, 5);
 
-        myTest.addElement(1, 1, 2);
-        myTest.addElement(1, 2, 1);
-        myTest.addElement(1, 0, 4);
+            myTest.addElement(1, 1, 2);
+            myTest.addElement(1, 2, 1);
+            myTest.addElement(1, 0, 4);
 
-        myTest.removeElement(1, 0);
+            myTest.removeElement(1, 0);
+        });
 
         int result = myTest.getElement(1, 0);
         assertEquals(0, result);
@@ -288,15 +333,17 @@ class SparseInterfaceTest {
     //Score:  1
     @Test
     public void testRemoveElementMiddleOfMiddleRowGet() {
-        myTest.setSize(3);
-        myTest.addElement(0, 0, 3);
-        myTest.addElement(2,1, 5);
+        assertTimeoutPreemptively(ofMillis(1000), () -> {
+            myTest.setSize(3);
+            myTest.addElement(0, 0, 3);
+            myTest.addElement(2,1, 5);
 
-        myTest.addElement(1, 0, 2);
-        myTest.addElement(1, 2, 1);
-        myTest.addElement(1, 1, 4);
+            myTest.addElement(1, 0, 2);
+            myTest.addElement(1, 2, 1);
+            myTest.addElement(1, 1, 4);
 
-        myTest.removeElement(1, 1);
+            myTest.removeElement(1, 1);
+        });
 
         int result = myTest.getElement(1, 1);
         assertEquals(0, result);
@@ -307,15 +354,17 @@ class SparseInterfaceTest {
     //Score:  1
     @Test
     public void testRemoveElementEndOfMiddleRowGet() {
-        myTest.setSize(3);
-        myTest.addElement(0, 0, 3);
-        myTest.addElement(2,1, 5);
+        assertTimeoutPreemptively(ofMillis(1000), () -> {
+            myTest.setSize(3);
+            myTest.addElement(0, 0, 3);
+            myTest.addElement(2,1, 5);
 
-        myTest.addElement(1, 0, 2);
-        myTest.addElement(1, 1, 1);
-        myTest.addElement(1, 2, 4);
+            myTest.addElement(1, 0, 2);
+            myTest.addElement(1, 1, 1);
+            myTest.addElement(1, 2, 4);
 
-        myTest.removeElement(1, 2);
+            myTest.removeElement(1, 2);
+        });
 
         int result = myTest.getElement(1, 2);
         assertEquals(0, result);
@@ -326,12 +375,15 @@ class SparseInterfaceTest {
     //Score:  1
     @Test
     public void testRemoveElementEndOfLastRowGet() {
-        myTest.setSize(2);
-        myTest.addElement(0, 0, 1);
-        myTest.addElement(1,0,3);
-        myTest.addElement(1,1,4);
+        assertTimeoutPreemptively(ofMillis(1000), () -> {
+            myTest.setSize(2);
+            myTest.addElement(0, 0, 1);
+            myTest.addElement(1,0,3);
+            myTest.addElement(1,1,4);
 
-        myTest.removeElement(1,1);
+            myTest.removeElement(1,1);
+        });
+
         int result = myTest.getElement(1, 1);
         assertEquals(0, result);
         if( 0 == result)
@@ -341,11 +393,14 @@ class SparseInterfaceTest {
     //Score:  1
     @Test
     public void testRemoveElementHeadOfFirstRowString() {
-        myTest.setSize(3);
-        myTest.addElement(0, 0, 4);
-        myTest.addElement(0, 1, 5);
+        assertTimeoutPreemptively(ofMillis(1000), () -> {
+            myTest.setSize(3);
+            myTest.addElement(0, 0, 4);
+            myTest.addElement(0, 1, 5);
 
-        myTest.removeElement(0, 0);
+            myTest.removeElement(0, 0);
+        });
+
         String result = myTest.toString();
         assertEquals("0 1 5\n", result);
         if("0 1 5\n".equals(result))
@@ -355,10 +410,13 @@ class SparseInterfaceTest {
     //Score:  1
     @Test
     public void testRemoveLastElementInMatrixString() {
-        myTest.setSize(3);
-        myTest.addElement(0, 0, 4);
+        assertTimeoutPreemptively(ofMillis(1000), () -> {
+            myTest.setSize(3);
+            myTest.addElement(0, 0, 4);
 
-        myTest.removeElement(0, 0);
+            myTest.removeElement(0, 0);
+        });
+
         assertEquals("", myTest.toString());
         if("".equals(myTest.toString()))
             System.out.println(1);
@@ -367,15 +425,17 @@ class SparseInterfaceTest {
     //Score:  1
     @Test
     public void testRemoveElementHeadOfMiddleRowString() {
-        myTest.setSize(3);
-        myTest.addElement(0, 0, 3);
-        myTest.addElement(2,1, 5);
+        assertTimeoutPreemptively(ofMillis(1000), () -> {
+            myTest.setSize(3);
+            myTest.addElement(0, 0, 3);
+            myTest.addElement(2,1, 5);
 
-        myTest.addElement(1, 1, 2);
-        myTest.addElement(1, 2, 1);
-        myTest.addElement(1, 0, 4);
+            myTest.addElement(1, 1, 2);
+            myTest.addElement(1, 2, 1);
+            myTest.addElement(1, 0, 4);
 
-        myTest.removeElement(1, 0);
+            myTest.removeElement(1, 0);
+        });
 
         assertEquals("0 0 3\n1 1 2\n1 2 1\n2 1 5\n", myTest.toString());
         if("0 0 3\n1 1 2\n1 2 1\n2 1 5\n".equals(myTest.toString()))
@@ -385,35 +445,37 @@ class SparseInterfaceTest {
     //Score:  1
     @Test
     public void testRemoveElementMiddleOfMiddleRowString() {
-        myTest.setSize(3);
-        myTest.addElement(0, 0, 3);
-        myTest.addElement(2,1, 5);
+        assertTimeoutPreemptively(ofMillis(1000), () -> {
+            myTest.setSize(3);
+            myTest.addElement(0, 0, 3);
+            myTest.addElement(2,1, 5);
 
-        myTest.addElement(1, 0, 2);
-        myTest.addElement(1, 2, 1);
-        myTest.addElement(1, 1, 4);
+            myTest.addElement(1, 0, 2);
+            myTest.addElement(1, 2, 1);
+            myTest.addElement(1, 1, 4);
 
-        myTest.removeElement(1, 1);
+            myTest.removeElement(1, 1);
+        });
 
         assertEquals("0 0 3\n1 0 2\n1 2 1\n2 1 5\n", myTest.toString());
         if("0 0 3\n1 0 2\n1 2 1\n2 1 5\n".equals(myTest.toString()))
             System.out.println(1);
-
-
     }
 
     //Score:  1
     @Test
     public void testRemoveElementEndOfMiddleRowString() {
-        myTest.setSize(3);
-        myTest.addElement(0, 0, 3);
-        myTest.addElement(2,1, 5);
+        assertTimeoutPreemptively(ofMillis(1000), () -> {
+            myTest.setSize(3);
+            myTest.addElement(0, 0, 3);
+            myTest.addElement(2,1, 5);
 
-        myTest.addElement(1, 0, 2);
-        myTest.addElement(1, 1, 1);
-        myTest.addElement(1, 2, 4);
+            myTest.addElement(1, 0, 2);
+            myTest.addElement(1, 1, 1);
+            myTest.addElement(1, 2, 4);
 
-        myTest.removeElement(1, 2);
+            myTest.removeElement(1, 2);
+        });
 
         assertEquals("0 0 3\n1 0 2\n1 1 1\n2 1 5\n", myTest.toString());
         if("0 0 3\n1 0 2\n1 1 1\n2 1 5\n".equals(myTest.toString()))
@@ -424,12 +486,14 @@ class SparseInterfaceTest {
     //Score:  1
     @Test
     public void testRemoveElementEndOfLastRowString() {
-        myTest.setSize(2);
-        myTest.addElement(0, 0, 1);
-        myTest.addElement(1,0,3);
-        myTest.addElement(1,1,4);
+        assertTimeoutPreemptively(ofMillis(1000), () -> {
+            myTest.setSize(2);
+            myTest.addElement(0, 0, 1);
+            myTest.addElement(1,0,3);
+            myTest.addElement(1,1,4);
 
-        myTest.removeElement(1,1);
+            myTest.removeElement(1,1);
+        });
 
         assertEquals("0 0 1\n1 0 3\n", myTest.toString());
         if("0 0 1\n1 0 3\n".equals(myTest.toString()))
@@ -441,8 +505,10 @@ class SparseInterfaceTest {
     //Score:  1
     @Test
     public void testGetExistingElement() {
-        myTest.addElement(2, 2, 4);
-        myTest.addElement(1, 0, -3);
+        assertTimeoutPreemptively(ofMillis(1000), () -> {
+            myTest.addElement(2, 2, 4);
+            myTest.addElement(1, 0, -3);
+        });
 
         assertEquals(4, myTest.getElement(2, 2));
         assertEquals(-3, myTest.getElement(1, 0));
@@ -453,8 +519,10 @@ class SparseInterfaceTest {
     //Score: 2
     @Test
     public void testGetNonExistantElement() {
-        myTest.addElement(2, 2, 4);
-        myTest.addElement(1, 0, -3);
+        assertTimeoutPreemptively(ofMillis(1000), () -> {
+            myTest.addElement(2, 2, 4);
+            myTest.addElement(1, 0, -3);
+        });
 
         assertEquals(0, myTest.getElement(1, 1));
         if(0 == myTest.getElement(1,1))
