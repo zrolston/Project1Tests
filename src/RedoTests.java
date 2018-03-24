@@ -174,7 +174,7 @@ class RedoTest {
     public void testAddElementHeadOfFirstRowString() {
         firstMatrix.setSize(3);
         firstMatrix.addElement(0, 0, 4);
-
+ir
         if("0 0 4\n".equals(firstMatrix.toString()))
             System.out.println(1);
         assertEquals("0 0 4\n", firstMatrix.toString());
@@ -489,7 +489,7 @@ class RedoTest {
         };
         this.add2DMatrix(matrix2, (SparseMatrix) secondMatrix);
 
-        if(firstMatrix.addMatrices(secondMatrix).equals(null))
+        if(firstMatrix.addMatrices(secondMatrix) == null)
             System.out.println(3);
         assertEquals(null, firstMatrix.addMatrices(secondMatrix));
     }
