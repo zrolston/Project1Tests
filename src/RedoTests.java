@@ -174,7 +174,6 @@ class RedoTest {
     public void testAddElementHeadOfFirstRowString() {
         firstMatrix.setSize(3);
         firstMatrix.addElement(0, 0, 4);
-ir
         if("0 0 4\n".equals(firstMatrix.toString()))
             System.out.println(1);
         assertEquals("0 0 4\n", firstMatrix.toString());

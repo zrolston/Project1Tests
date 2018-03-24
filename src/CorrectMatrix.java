@@ -375,5 +375,15 @@ public class CorrectMatrix implements SparseInterface {
     public int getSize() {
         return this.size;
     }
+
+    @Override
+    public SparseInterface addMatrices(SparseInterface matrixToAdd) {
+        return null;
+    }
+
+    @Override
+    public SparseInterface multiplyMatrices(SparseInterface matrixToMultiply) {
+        return null;
+    }
 }
 

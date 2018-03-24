@@ -239,6 +239,16 @@ public class SingleListMatrix implements SparseInterface {
         return this.size;
     }
 
+    @Override
+    public SparseInterface addMatrices(SparseInterface matrixToAdd) {
+        return null;
+    }
+
+    @Override
+    public SparseInterface multiplyMatrices(SparseInterface matrixToMultiply) {
+        return null;
+    }
+
     //O(n^2) since in the worst case we traverse a full matrix.
     @Override
     public String toString() {
