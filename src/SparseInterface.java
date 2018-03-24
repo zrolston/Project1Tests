@@ -69,4 +69,9 @@ public interface SparseInterface {
     Should return the size of the matrix.
      */
     public int getSize();
+
+    /*takes another matrix as input and returns the sum of the two matrices*/
+    public SparseInterface addMatrices(SparseInterface matrixToAdd);
+    /*takes another matrix as input and returns the product of the two matrices*/
+    public SparseInterface multiplyMatrices(SparseInterface matrixToMultiply);
 }
