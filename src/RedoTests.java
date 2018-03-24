@@ -473,7 +473,7 @@ class RedoTest {
 
     //Score:  3
     @Test
-    public void testSize() {
+    public void testDifferentSizes() {
         firstMatrix.setSize(3);
         int[][] matrix = {
                 {2,1,3},
@@ -489,7 +489,7 @@ class RedoTest {
         };
         this.add2DMatrix(matrix2, (SparseMatrix) secondMatrix);
 
-        if(firstMatrix.addMatrices(secondMatrix).equals(null))
+        if(firstMatrix.addMatrices(secondMatrix) == null)
             System.out.println(3);
         assertEquals(null, firstMatrix.addMatrices(secondMatrix));
     }
