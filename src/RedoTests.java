@@ -37,7 +37,7 @@ class RedoTest {
                 {0, 0},
                 {0, 0}
         };
-        this.add2DMatrix(matrix, (SparseMatrix) firstMatrix);
+        this.add2DMatrix(matrix, firstMatrix);
         firstMatrix.clear();
 
         if( 0 == firstMatrix.getElement(0,0) && 0 == firstMatrix.getElement(0,1)
@@ -174,6 +174,7 @@ class RedoTest {
     public void testAddElementHeadOfFirstRowString() {
         firstMatrix.setSize(3);
         firstMatrix.addElement(0, 0, 4);
+
         if("0 0 4\n".equals(firstMatrix.toString()))
             System.out.println(1);
         assertEquals("0 0 4\n", firstMatrix.toString());
@@ -472,21 +473,21 @@ class RedoTest {
 
     //Score:  3
     @Test
-    public void testDifferentSizes() {
+    public void testSize() {
         firstMatrix.setSize(3);
         int[][] matrix = {
                 {2,1,3},
                 {1,2,4},
                 {2,3,2}
         };
-        this.add2DMatrix(matrix, (SparseMatrix) firstMatrix);
+        this.add2DMatrix(matrix, firstMatrix);
 
         secondMatrix.setSize(2);
         int[][] matrix2 = {
                 {0,2},
                 {9,3}
         };
-        this.add2DMatrix(matrix2, (SparseMatrix) secondMatrix);
+        this.add2DMatrix(matrix2, secondMatrix);
 
         if(firstMatrix.addMatrices(secondMatrix) == null)
             System.out.println(3);
@@ -502,7 +503,7 @@ class RedoTest {
                 {2, 9, 0},
                 {2, 2, 3}
         };
-        this.add2DMatrix(matrix, (SparseMatrix) firstMatrix);
+        this.add2DMatrix(matrix, firstMatrix);
 
 
         secondMatrix.setSize(3);
@@ -511,21 +512,21 @@ class RedoTest {
                 {9, 1, 3},
                 {0, 0, 3}
         };
-        this.add2DMatrix(matrix2, (SparseMatrix) secondMatrix);
+        this.add2DMatrix(matrix2, secondMatrix);
 
         expectedResult.setSize(3);
         int[][] matrix3 = {
-                {3, 0, 2},
-                {9, 1, 3},
-                {0, 0, 3}
+                {3, 1, 6},
+                {11, 10, 3},
+                {2, 2, 6}
         };
-        this.add2DMatrix(matrix3, (SparseMatrix) expectedResult);
+        this.add2DMatrix(matrix3, expectedResult);
 
 
-        SparseMatrix result = (SparseMatrix) firstMatrix.addMatrices(secondMatrix);
-        if(result.equals(expectedResult))
+        SparseInterface result = firstMatrix.addMatrices(secondMatrix);
+        if(result.toString().equals(expectedResult.toString()))
             System.out.println(5);
-        assertEquals(result, expectedResult);
+        assertEquals(result.toString(), expectedResult.toString());
     }
 
     //Score: 5
@@ -539,7 +540,7 @@ class RedoTest {
                 {7,7,8,9},
 
         };
-        this.add2DMatrix(matrix, (SparseMatrix) firstMatrix);
+        this.add2DMatrix(matrix, firstMatrix);
 
 
         secondMatrix.setSize(4);
@@ -549,7 +550,7 @@ class RedoTest {
                 {8,6,4,3},
                 {6,0,9,6},
         };
-        this.add2DMatrix(matrix2, (SparseMatrix) secondMatrix);
+        this.add2DMatrix(matrix2, secondMatrix);
 
         expectedResult.setSize(4);
         int[][] matrix3 = {
@@ -558,13 +559,13 @@ class RedoTest {
                 {16,11,11,12},
                 {13,7,17,15},
         };
-        this.add2DMatrix(matrix3, (SparseMatrix) expectedResult);
+        this.add2DMatrix(matrix3, expectedResult);
 
 
-        SparseMatrix result = (SparseMatrix) firstMatrix.addMatrices(secondMatrix);
-        if(result.equals(expectedResult))
+        SparseInterface result = firstMatrix.addMatrices(secondMatrix);
+        if(result.toString().equals(expectedResult.toString()))
             System.out.println(5);
-        assertEquals(result, expectedResult);
+        assertEquals(result.toString(), expectedResult.toString());
     }
 
     //Score:  5
@@ -579,7 +580,7 @@ class RedoTest {
                 {1,2,4,3,7},
 
         };
-        this.add2DMatrix(matrix, (SparseMatrix) firstMatrix);
+        this.add2DMatrix(matrix, firstMatrix);
 
         secondMatrix.setSize(5);
         int[][] matrix2 = {
@@ -589,7 +590,7 @@ class RedoTest {
                 {-9,-5,-5,-3,-4},
                 {-1,-2,-4,-3,-7},
         };
-        this.add2DMatrix(matrix2, (SparseMatrix) secondMatrix);
+        this.add2DMatrix(matrix2, secondMatrix);
 
         expectedResult.setSize(5);
         int[][] matrix3 = {
@@ -599,13 +600,13 @@ class RedoTest {
                 {0,0,0,0,0},
                 {0,0,0,0,0},
         };
-        this.add2DMatrix(matrix3, (SparseMatrix) expectedResult);
+        this.add2DMatrix(matrix3, expectedResult);
 
 
-        SparseMatrix result = (SparseMatrix) firstMatrix.addMatrices(secondMatrix);
-        if(result.equals(expectedResult))
+        SparseInterface result = firstMatrix.addMatrices(secondMatrix);
+        if(result.toString().equals(expectedResult.toString()))
             System.out.println(5);
-        assertEquals(result, expectedResult);
+        assertEquals(result.toString(), expectedResult.toString());
     }
 
     //Score:  5
@@ -618,7 +619,7 @@ class RedoTest {
                 {8,6,4,6},
                 {7,5,8,7}
         };
-        this.add2DMatrix(matrix, (SparseMatrix) firstMatrix);
+        this.add2DMatrix(matrix, firstMatrix);
 
         secondMatrix.setSize(4);
         int[][] matrix2 = {
@@ -627,7 +628,7 @@ class RedoTest {
                 {7,5,6,7},
                 {6,8,8,9}
         };
-        this.add2DMatrix(matrix2, (SparseMatrix) secondMatrix);
+        this.add2DMatrix(matrix2, secondMatrix);
 
         expectedResult.setSize(4);
         int[][] matrix3 = {
@@ -636,11 +637,11 @@ class RedoTest {
                 {88,182,182,184},
                 {118,194,198,206}
         };
-        this.add2DMatrix(matrix3, (SparseMatrix) expectedResult);
-        SparseMatrix result = (SparseMatrix) firstMatrix.multiplyMatrices(secondMatrix);
-        if(result.equals(expectedResult))
+        this.add2DMatrix(matrix3, expectedResult);
+        SparseInterface result = firstMatrix.multiplyMatrices(secondMatrix);
+        if(result.toString().equals(expectedResult.toString()))
             System.out.println(5);
-        assertEquals(result, expectedResult);
+        assertEquals(result.toString(), expectedResult.toString());
     }
 
     //Score:  5
@@ -653,7 +654,7 @@ class RedoTest {
                 {53,2,3,2},
                 {4,2,1,33}
         };
-        this.add2DMatrix(matrix, (SparseMatrix) firstMatrix);
+        this.add2DMatrix(matrix, firstMatrix);
 
 
         secondMatrix.setSize(4);
@@ -663,21 +664,21 @@ class RedoTest {
                 {3,23,6,3},
                 {9,4,52,3}
         };
-        this.add2DMatrix(matrix2, (SparseMatrix) secondMatrix);
+        this.add2DMatrix(matrix2, secondMatrix);
 
         expectedResult.setSize(4);
         int[][] matrix3 = {
                 {543,130,592,43},
-                {195,305,342,53},
+                {195,305,342,52},
                 {115,189,802,70},
                 {388,169,1814,108}
         };
-        this.add2DMatrix(matrix3, (SparseMatrix) expectedResult);
+        this.add2DMatrix(matrix3, expectedResult);
 
-        SparseMatrix result = (SparseMatrix) firstMatrix.multiplyMatrices(secondMatrix);
-        if(result.equals(expectedResult))
+        SparseInterface result = firstMatrix.multiplyMatrices(secondMatrix);
+        if(result.toString().equals(expectedResult.toString()))
             System.out.println(5);
-        assertEquals(result, expectedResult);
+        assertEquals(result.toString(), expectedResult.toString());
     }
 
     //Score:  5
@@ -689,7 +690,7 @@ class RedoTest {
                 {8,7,6},
                 {4,6,7},
         };
-        this.add2DMatrix(matrix, (SparseMatrix) firstMatrix);
+        this.add2DMatrix(matrix, firstMatrix);
 
 
         secondMatrix.setSize(3);
@@ -698,7 +699,7 @@ class RedoTest {
                 {9,3,6},
                 {4,1,3},
         };
-        this.add2DMatrix(matrix2, (SparseMatrix) secondMatrix);
+        this.add2DMatrix(matrix2, secondMatrix);
 
         expectedResult.setSize(3);
         int[][] matrix3 = {
@@ -706,17 +707,17 @@ class RedoTest {
                 {87,43,84},
                 {82,33,69},
         };
-        this.add2DMatrix(matrix3, (SparseMatrix) expectedResult);
+        this.add2DMatrix(matrix3, expectedResult);
 
-        SparseMatrix result = (SparseMatrix) firstMatrix.multiplyMatrices(secondMatrix);
-        if(result.equals(expectedResult))
+        SparseInterface result = firstMatrix.multiplyMatrices(secondMatrix);
+        if(result.toString().equals(expectedResult.toString()))
             System.out.println(5);
-        assertEquals(result, expectedResult);
+        assertEquals(result.toString(), expectedResult.toString());
     }
 
 
 
-    public void add2DMatrix(int[][] matrix, SparseMatrix sparseMatrix) {
+    public void add2DMatrix(int[][] matrix, SparseInterface sparseMatrix) {
         for (int i = 0; i < matrix.length; ++i) {
             for (int j = 0; j < matrix.length; ++j) {
                 sparseMatrix.addElement(i, j, matrix[i][j]);

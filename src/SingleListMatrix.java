@@ -241,13 +241,55 @@ public class SingleListMatrix implements SparseInterface {
 
     @Override
     public SparseInterface addMatrices(SparseInterface matrixToAdd) {
-        return null;
+        if(this.size != matrixToAdd.getSize()){
+            return null;
+        }
+
+        SparseInterface sumMatrix = new SingleListMatrix(this.size);
+
+        int myElement = 0;
+        int newElement = 0;
+
+        for(int i = 0; i < this.size; i++){
+            for(int j = 0; j < this.size; j++){
+                myElement = this.getElement(i,j);
+                newElement = matrixToAdd.getElement(i,j);
+                if(myElement + newElement != 0){
+                    sumMatrix.addElement(i, j, myElement + newElement);
+                }
+            }
+        }
+
+        return sumMatrix;
     }
 
     @Override
     public SparseInterface multiplyMatrices(SparseInterface matrixToMultiply) {
-        return null;
+        if (this.size != matrixToMultiply.getSize()) {
+            return null;
+        }
+
+        SparseInterface productMatrix = new SingleListMatrix(this.size);
+
+        int elementSum;
+
+        for(int i = 0; i < this.size; i++){
+            for(int j = 0; j < matrixToMultiply.getSize(); j++){
+                elementSum = 0;
+
+                for(int k = 0; k < this.size; k++){
+                    elementSum += this.getElement(i, k) * matrixToMultiply.getElement(k, j);
+                }
+
+                if(elementSum != 0) {
+                    productMatrix.addElement(i, j, elementSum);
+                }
+            }
+        }
+
+        return productMatrix;
     }
+
 
     //O(n^2) since in the worst case we traverse a full matrix.
     @Override
