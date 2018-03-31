@@ -238,7 +238,7 @@ public class SingleListMatrix implements SparseInterface {
     public int getSize() {
         return this.size;
     }
-
+/*
     @Override
     public SparseInterface addMatrices(SparseInterface matrixToAdd) {
         if(this.size != matrixToAdd.getSize()){
@@ -290,7 +290,7 @@ public class SingleListMatrix implements SparseInterface {
         return productMatrix;
     }
 
-
+*/
     //O(n^2) since in the worst case we traverse a full matrix.
     @Override
     public String toString() {
@@ -308,4 +308,5 @@ public class SingleListMatrix implements SparseInterface {
 
         return matrix.toString();
     }
+
 }

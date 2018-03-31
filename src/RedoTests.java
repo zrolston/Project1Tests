@@ -16,7 +16,7 @@ class RedoTest {
         firstMatrix.addElement(1, 1, 5);
         firstMatrix.determinant();
 
-        if( 0 == firstMatrix.determinant())
+        if (0 == firstMatrix.determinant())
             System.out.println(5);
 
         assertEquals(0, firstMatrix.determinant());
@@ -40,8 +40,8 @@ class RedoTest {
         this.add2DMatrix(matrix, firstMatrix);
         firstMatrix.clear();
 
-        if( 0 == firstMatrix.getElement(0,0) && 0 == firstMatrix.getElement(0,1)
-                && 0 == firstMatrix.getElement(1,0) && 0 == firstMatrix.getElement(1,1))
+        if (0 == firstMatrix.getElement(0, 0) && 0 == firstMatrix.getElement(0, 1)
+                && 0 == firstMatrix.getElement(1, 0) && 0 == firstMatrix.getElement(1, 1))
             System.out.println(1);
 
         assertEquals(0, firstMatrix.getElement(0, 0));
@@ -53,11 +53,11 @@ class RedoTest {
     //Score:  1
     @Test
     public void testSetSize() {
-        firstMatrix.addElement(0,0, 4);
+        firstMatrix.addElement(0, 0, 4);
         firstMatrix.setSize(3);
 
         int ans = firstMatrix.getSize();
-        if( 3 == ans && "".equals(firstMatrix.toString()))
+        if (3 == ans && "".equals(firstMatrix.toString()))
             System.out.println(1);
         assertEquals(3, ans);
         assertEquals("", firstMatrix.toString());
@@ -68,10 +68,10 @@ class RedoTest {
     public void testAddOverwrite() {
         firstMatrix.setSize(3);
         firstMatrix.addElement(0, 0, 15);
-        firstMatrix.addElement(0,0,4);
+        firstMatrix.addElement(0, 0, 4);
         int result = firstMatrix.getElement(0, 0);
 
-        if(4 == result && "0 0 4\n".equals(firstMatrix.toString()))
+        if (4 == result && "0 0 4\n".equals(firstMatrix.toString()))
             System.out.println(2);
         assertEquals(4, result);
         assertEquals("0 0 4\n", firstMatrix.toString());
@@ -82,10 +82,10 @@ class RedoTest {
     public void testAddZero() {
         firstMatrix.setSize(3);
         firstMatrix.addElement(0, 0, 15);
-        firstMatrix.addElement(0,0,0);
+        firstMatrix.addElement(0, 0, 0);
         int result = firstMatrix.getElement(0, 0);
 
-        if("".equals(firstMatrix.toString()))
+        if ("".equals(firstMatrix.toString()))
             System.out.println(2);
         assertEquals(0, result);
         assertEquals("", firstMatrix.toString());
@@ -98,7 +98,7 @@ class RedoTest {
         firstMatrix.addElement(0, 0, 4);
         int result = firstMatrix.getElement(0, 0);
 
-        if(4 == result && "0 0 4\n".equals(firstMatrix.toString()))
+        if (4 == result && "0 0 4\n".equals(firstMatrix.toString()))
             System.out.println(1);
         assertEquals(4, result);
         assertEquals("0 0 4\n", firstMatrix.toString());
@@ -109,14 +109,14 @@ class RedoTest {
     public void testAddElementHeadOfMiddleRowGet() {
         firstMatrix.setSize(3);
         firstMatrix.addElement(0, 0, 3);
-        firstMatrix.addElement(2,1, 5);
+        firstMatrix.addElement(2, 1, 5);
 
         firstMatrix.addElement(1, 1, 2);
         firstMatrix.addElement(1, 2, 1);
         firstMatrix.addElement(1, 0, 4);
 
         int result = firstMatrix.getElement(1, 0);
-        if(4 == result)
+        if (4 == result)
             System.out.println(1);
         assertEquals(4, result);
     }
@@ -126,14 +126,14 @@ class RedoTest {
     public void testAddElementMiddleOfMiddleRowGet() {
         firstMatrix.setSize(3);
         firstMatrix.addElement(0, 0, 3);
-        firstMatrix.addElement(2,1, 5);
+        firstMatrix.addElement(2, 1, 5);
 
         firstMatrix.addElement(1, 0, 2);
         firstMatrix.addElement(1, 2, 1);
         firstMatrix.addElement(1, 1, 4);
 
         int result = firstMatrix.getElement(1, 1);
-        if(4 == result)
+        if (4 == result)
             System.out.println(1);
         assertEquals(4, result);
     }
@@ -160,11 +160,11 @@ class RedoTest {
     public void testAddElementEndOfLastRowGet() {
         firstMatrix.setSize(2);
         firstMatrix.addElement(0, 0, 1);
-        firstMatrix.addElement(1,0,3);
-        firstMatrix.addElement(1,1,4);
+        firstMatrix.addElement(1, 0, 3);
+        firstMatrix.addElement(1, 1, 4);
 
         int result = firstMatrix.getElement(1, 1);
-        if(4 == result)
+        if (4 == result)
             System.out.println(1);
         assertEquals(4, result);
     }
@@ -175,7 +175,7 @@ class RedoTest {
         firstMatrix.setSize(3);
         firstMatrix.addElement(0, 0, 4);
 
-        if("0 0 4\n".equals(firstMatrix.toString()))
+        if ("0 0 4\n".equals(firstMatrix.toString()))
             System.out.println(1);
         assertEquals("0 0 4\n", firstMatrix.toString());
     }
@@ -185,13 +185,13 @@ class RedoTest {
     public void testAddElementHeadOfMiddleRowString() {
         firstMatrix.setSize(3);
         firstMatrix.addElement(0, 0, 3);
-        firstMatrix.addElement(2,1, 5);
+        firstMatrix.addElement(2, 1, 5);
 
         firstMatrix.addElement(1, 1, 2);
         firstMatrix.addElement(1, 2, 1);
         firstMatrix.addElement(1, 0, 4);
 
-        if("0 0 3\n1 0 4\n1 1 2\n1 2 1\n2 1 5\n".equals(firstMatrix.toString()))
+        if ("0 0 3\n1 0 4\n1 1 2\n1 2 1\n2 1 5\n".equals(firstMatrix.toString()))
             System.out.println(1);
 
         assertEquals("0 0 3\n1 0 4\n1 1 2\n1 2 1\n2 1 5\n", firstMatrix.toString());
@@ -202,13 +202,13 @@ class RedoTest {
     public void testAddElementMiddleOfMiddleRowString() {
         firstMatrix.setSize(3);
         firstMatrix.addElement(0, 0, 3);
-        firstMatrix.addElement(2,1, 5);
+        firstMatrix.addElement(2, 1, 5);
 
         firstMatrix.addElement(1, 0, 2);
         firstMatrix.addElement(1, 2, 1);
         firstMatrix.addElement(1, 1, 4);
 
-        if("0 0 3\n1 0 2\n1 1 4\n1 2 1\n2 1 5\n".equals(firstMatrix.toString()))
+        if ("0 0 3\n1 0 2\n1 1 4\n1 2 1\n2 1 5\n".equals(firstMatrix.toString()))
             System.out.println(1);
         assertEquals("0 0 3\n1 0 2\n1 1 4\n1 2 1\n2 1 5\n", firstMatrix.toString());
     }
@@ -218,13 +218,13 @@ class RedoTest {
     public void testAddElementEndOfMiddleRowString() {
         firstMatrix.setSize(3);
         firstMatrix.addElement(0, 0, 3);
-        firstMatrix.addElement(2,1, 5);
+        firstMatrix.addElement(2, 1, 5);
 
         firstMatrix.addElement(1, 0, 2);
         firstMatrix.addElement(1, 1, 1);
         firstMatrix.addElement(1, 2, 4);
 
-        if("0 0 3\n1 0 2\n1 1 1\n1 2 4\n2 1 5\n".equals(firstMatrix.toString()))
+        if ("0 0 3\n1 0 2\n1 1 1\n1 2 4\n2 1 5\n".equals(firstMatrix.toString()))
             System.out.println(1);
         assertEquals("0 0 3\n1 0 2\n1 1 1\n1 2 4\n2 1 5\n", firstMatrix.toString());
     }
@@ -234,10 +234,10 @@ class RedoTest {
     public void testAddElementEndOfLastRowString() {
         firstMatrix.setSize(2);
         firstMatrix.addElement(0, 0, 1);
-        firstMatrix.addElement(1,0,3);
-        firstMatrix.addElement(1,1,4);
+        firstMatrix.addElement(1, 0, 3);
+        firstMatrix.addElement(1, 1, 4);
 
-        if("0 0 1\n1 0 3\n1 1 4\n".equals(firstMatrix.toString()))
+        if ("0 0 1\n1 0 3\n1 1 4\n".equals(firstMatrix.toString()))
             System.out.println(1);
         assertEquals("0 0 1\n1 0 3\n1 1 4\n", firstMatrix.toString());
     }
@@ -251,7 +251,7 @@ class RedoTest {
 
         firstMatrix.removeElement(0, 0);
         int result = firstMatrix.getElement(0, 0);
-        if(0 == result)
+        if (0 == result)
             System.out.println(1);
         assertEquals(0, result);
     }
@@ -264,7 +264,7 @@ class RedoTest {
 
         firstMatrix.removeElement(0, 0);
         int result = firstMatrix.getElement(0, 0);
-        if(0 == result)
+        if (0 == result)
             System.out.println(1);
         assertEquals(0, result);
     }
@@ -274,7 +274,7 @@ class RedoTest {
     public void testRemoveElementHeadOfMiddleRowGet() {
         firstMatrix.setSize(3);
         firstMatrix.addElement(0, 0, 3);
-        firstMatrix.addElement(2,1, 5);
+        firstMatrix.addElement(2, 1, 5);
 
         firstMatrix.addElement(1, 1, 2);
         firstMatrix.addElement(1, 2, 1);
@@ -283,7 +283,7 @@ class RedoTest {
         firstMatrix.removeElement(1, 0);
 
         int result = firstMatrix.getElement(1, 0);
-        if(0 == result)
+        if (0 == result)
             System.out.println(1);
         assertEquals(0, result);
     }
@@ -293,7 +293,7 @@ class RedoTest {
     public void testRemoveElementMiddleOfMiddleRowGet() {
         firstMatrix.setSize(3);
         firstMatrix.addElement(0, 0, 3);
-        firstMatrix.addElement(2,1, 5);
+        firstMatrix.addElement(2, 1, 5);
 
         firstMatrix.addElement(1, 0, 2);
         firstMatrix.addElement(1, 2, 1);
@@ -302,7 +302,7 @@ class RedoTest {
         firstMatrix.removeElement(1, 1);
 
         int result = firstMatrix.getElement(1, 1);
-        if( 0 == result)
+        if (0 == result)
             System.out.println(1);
         assertEquals(0, result);
     }
@@ -312,7 +312,7 @@ class RedoTest {
     public void testRemoveElementEndOfMiddleRowGet() {
         firstMatrix.setSize(3);
         firstMatrix.addElement(0, 0, 3);
-        firstMatrix.addElement(2,1, 5);
+        firstMatrix.addElement(2, 1, 5);
 
         firstMatrix.addElement(1, 0, 2);
         firstMatrix.addElement(1, 1, 1);
@@ -321,7 +321,7 @@ class RedoTest {
         firstMatrix.removeElement(1, 2);
 
         int result = firstMatrix.getElement(1, 2);
-        if( 0 == result)
+        if (0 == result)
             System.out.println(1);
         assertEquals(0, result);
     }
@@ -331,12 +331,12 @@ class RedoTest {
     public void testRemoveElementEndOfLastRowGet() {
         firstMatrix.setSize(2);
         firstMatrix.addElement(0, 0, 1);
-        firstMatrix.addElement(1,0,3);
-        firstMatrix.addElement(1,1,4);
+        firstMatrix.addElement(1, 0, 3);
+        firstMatrix.addElement(1, 1, 4);
 
-        firstMatrix.removeElement(1,1);
+        firstMatrix.removeElement(1, 1);
         int result = firstMatrix.getElement(1, 1);
-        if( 0 == result)
+        if (0 == result)
             System.out.println(1);
         assertEquals(0, result);
     }
@@ -350,7 +350,7 @@ class RedoTest {
 
         firstMatrix.removeElement(0, 0);
         String result = firstMatrix.toString();
-        if("0 1 5\n".equals(result))
+        if ("0 1 5\n".equals(result))
             System.out.println(1);
         assertEquals("0 1 5\n", result);
     }
@@ -362,7 +362,7 @@ class RedoTest {
         firstMatrix.addElement(0, 0, 4);
 
         firstMatrix.removeElement(0, 0);
-        if("".equals(firstMatrix.toString()))
+        if ("".equals(firstMatrix.toString()))
             System.out.println(1);
         assertEquals("", firstMatrix.toString());
     }
@@ -372,7 +372,7 @@ class RedoTest {
     public void testRemoveElementHeadOfMiddleRowString() {
         firstMatrix.setSize(3);
         firstMatrix.addElement(0, 0, 3);
-        firstMatrix.addElement(2,1, 5);
+        firstMatrix.addElement(2, 1, 5);
 
         firstMatrix.addElement(1, 1, 2);
         firstMatrix.addElement(1, 2, 1);
@@ -380,7 +380,7 @@ class RedoTest {
 
         firstMatrix.removeElement(1, 0);
 
-        if("0 0 3\n1 1 2\n1 2 1\n2 1 5\n".equals(firstMatrix.toString()))
+        if ("0 0 3\n1 1 2\n1 2 1\n2 1 5\n".equals(firstMatrix.toString()))
             System.out.println(1);
         assertEquals("0 0 3\n1 1 2\n1 2 1\n2 1 5\n", firstMatrix.toString());
     }
@@ -390,7 +390,7 @@ class RedoTest {
     public void testRemoveElementMiddleOfMiddleRowString() {
         firstMatrix.setSize(3);
         firstMatrix.addElement(0, 0, 3);
-        firstMatrix.addElement(2,1, 5);
+        firstMatrix.addElement(2, 1, 5);
 
         firstMatrix.addElement(1, 0, 2);
         firstMatrix.addElement(1, 2, 1);
@@ -398,7 +398,7 @@ class RedoTest {
 
         firstMatrix.removeElement(1, 1);
 
-        if("0 0 3\n1 0 2\n1 2 1\n2 1 5\n".equals(firstMatrix.toString()))
+        if ("0 0 3\n1 0 2\n1 2 1\n2 1 5\n".equals(firstMatrix.toString()))
             System.out.println(1);
         assertEquals("0 0 3\n1 0 2\n1 2 1\n2 1 5\n", firstMatrix.toString());
     }
@@ -408,7 +408,7 @@ class RedoTest {
     public void testRemoveElementEndOfMiddleRowString() {
         firstMatrix.setSize(3);
         firstMatrix.addElement(0, 0, 3);
-        firstMatrix.addElement(2,1, 5);
+        firstMatrix.addElement(2, 1, 5);
 
         firstMatrix.addElement(1, 0, 2);
         firstMatrix.addElement(1, 1, 1);
@@ -416,7 +416,7 @@ class RedoTest {
 
         firstMatrix.removeElement(1, 2);
 
-        if("0 0 3\n1 0 2\n1 1 1\n2 1 5\n".equals(firstMatrix.toString()))
+        if ("0 0 3\n1 0 2\n1 1 1\n2 1 5\n".equals(firstMatrix.toString()))
             System.out.println(1);
         assertEquals("0 0 3\n1 0 2\n1 1 1\n2 1 5\n", firstMatrix.toString());
     }
@@ -426,16 +426,15 @@ class RedoTest {
     public void testRemoveElementEndOfLastRowString() {
         firstMatrix.setSize(2);
         firstMatrix.addElement(0, 0, 1);
-        firstMatrix.addElement(1,0,3);
-        firstMatrix.addElement(1,1,4);
+        firstMatrix.addElement(1, 0, 3);
+        firstMatrix.addElement(1, 1, 4);
 
-        firstMatrix.removeElement(1,1);
+        firstMatrix.removeElement(1, 1);
 
-        if("0 0 1\n1 0 3\n".equals(firstMatrix.toString()))
+        if ("0 0 1\n1 0 3\n".equals(firstMatrix.toString()))
             System.out.println(1);
         assertEquals("0 0 1\n1 0 3\n", firstMatrix.toString());
     }
-
 
 
     //Score:  1
@@ -444,7 +443,7 @@ class RedoTest {
         firstMatrix.addElement(2, 2, 4);
         firstMatrix.addElement(1, 0, -3);
 
-        if( 4 == firstMatrix.getElement(2,2) && -3 == firstMatrix.getElement(1,0))
+        if (4 == firstMatrix.getElement(2, 2) && -3 == firstMatrix.getElement(1, 0))
             System.out.println(1);
         assertEquals(4, firstMatrix.getElement(2, 2));
         assertEquals(-3, firstMatrix.getElement(1, 0));
@@ -456,7 +455,7 @@ class RedoTest {
         firstMatrix.addElement(2, 2, 4);
         firstMatrix.addElement(1, 0, -3);
 
-        if(0 == firstMatrix.getElement(1,1))
+        if (0 == firstMatrix.getElement(1, 1))
             System.out.println(2);
         assertEquals(0, firstMatrix.getElement(1, 1));
     }
@@ -466,11 +465,12 @@ class RedoTest {
     public void testGetSize() {
         firstMatrix.setSize(9);
 
-        if( 9 == firstMatrix.getSize())
+        if (9 == firstMatrix.getSize())
             System.out.println(1);
         assertEquals(9, firstMatrix.getSize());
     }
 
+/*
     //Score:  3
     @Test
     public void testSize() {
@@ -715,6 +715,7 @@ class RedoTest {
         assertEquals(result.toString(), expectedResult.toString());
     }
 
+*/
 
 
     public void add2DMatrix(int[][] matrix, SparseInterface sparseMatrix) {
