@@ -1,4 +1,4 @@
-public class SingleListMatrix implements SparseInterface {
+public class SingleListMatrix implements P1SparseInterface {
 
     //For all time complexities within n is the size of the matrix (n=5 if the matrix is 5x5)
 
@@ -194,7 +194,7 @@ public class SingleListMatrix implements SparseInterface {
 
     //O(n^3) for reasons explained within the method.
     @Override
-    public SparseInterface minor(int row, int col) {
+    public P1SparseInterface minor(int row, int col) {
         MatrixNode curr;
 
         int newRow = 0;
@@ -240,12 +240,12 @@ public class SingleListMatrix implements SparseInterface {
     }
 /*
     @Override
-    public SparseInterface addMatrices(SparseInterface matrixToAdd) {
+    public P1SparseInterface addMatrices(P1SparseInterface matrixToAdd) {
         if(this.size != matrixToAdd.getSize()){
             return null;
         }
 
-        SparseInterface sumMatrix = new SingleListMatrix(this.size);
+        P1SparseInterface sumMatrix = new SingleListMatrix(this.size);
 
         int myElement = 0;
         int newElement = 0;
@@ -264,12 +264,12 @@ public class SingleListMatrix implements SparseInterface {
     }
 
     @Override
-    public SparseInterface multiplyMatrices(SparseInterface matrixToMultiply) {
+    public P1SparseInterface multiplyMatrices(P1SparseInterface matrixToMultiply) {
         if (this.size != matrixToMultiply.getSize()) {
             return null;
         }
 
-        SparseInterface productMatrix = new SingleListMatrix(this.size);
+        P1SparseInterface productMatrix = new SingleListMatrix(this.size);
 
         int elementSum;
 

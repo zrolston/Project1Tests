@@ -4,10 +4,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 class RedoTest {
-    public SparseInterface firstMatrix = new SingleListMatrix(5);
-    public SparseInterface secondMatrix = new SingleListMatrix(5);
-    public SparseInterface expectedResult = new SingleListMatrix(5);
+    public SparseInterface firstMatrix = new SparseMatrix();
+    public SparseInterface secondMatrix = new SparseMatrix();
+    public SparseInterface expectedResult = new SparseMatrix();
 
+    /*
     //Score:  5
     @Test
     public void testMemory() {
@@ -21,12 +22,12 @@ class RedoTest {
 
         assertEquals(0, firstMatrix.determinant());
     }
-
+*/
 
     //Score:  1
     @Test
     public void testClear() {
-        firstMatrix.setSize(2);
+        firstMatrix.setSize(2,2);
         int[][] matrix = {
                 {2, 3},
                 {1, 6}
@@ -49,6 +50,7 @@ class RedoTest {
         assertEquals(0, firstMatrix.getElement(1, 0));
         assertEquals(0, firstMatrix.getElement(1, 1));
     }
+    /*
 
     //Score:  1
     @Test
@@ -62,11 +64,12 @@ class RedoTest {
         assertEquals(3, ans);
         assertEquals("", firstMatrix.toString());
     }
+    */
 
     //Score:  2
     @Test
     public void testAddOverwrite() {
-        firstMatrix.setSize(3);
+        firstMatrix.setSize(3,3);
         firstMatrix.addElement(0, 0, 15);
         firstMatrix.addElement(0, 0, 4);
         int result = firstMatrix.getElement(0, 0);
@@ -80,7 +83,7 @@ class RedoTest {
     //Score:  2
     @Test
     public void testAddZero() {
-        firstMatrix.setSize(3);
+        firstMatrix.setSize(3,3);
         firstMatrix.addElement(0, 0, 15);
         firstMatrix.addElement(0, 0, 0);
         int result = firstMatrix.getElement(0, 0);
@@ -94,7 +97,7 @@ class RedoTest {
     //Score:  1
     @Test
     public void testAddElementHeadOfFirstRowGet() {
-        firstMatrix.setSize(3);
+        firstMatrix.setSize(3,3);
         firstMatrix.addElement(0, 0, 4);
         int result = firstMatrix.getElement(0, 0);
 
@@ -107,7 +110,7 @@ class RedoTest {
     //Score:  1
     @Test
     public void testAddElementHeadOfMiddleRowGet() {
-        firstMatrix.setSize(3);
+        firstMatrix.setSize(3,3);
         firstMatrix.addElement(0, 0, 3);
         firstMatrix.addElement(2, 1, 5);
 
@@ -124,7 +127,7 @@ class RedoTest {
     //Score:  1
     @Test
     public void testAddElementMiddleOfMiddleRowGet() {
-        firstMatrix.setSize(3);
+        firstMatrix.setSize(3,3);
         firstMatrix.addElement(0, 0, 3);
         firstMatrix.addElement(2, 1, 5);
 
@@ -141,7 +144,7 @@ class RedoTest {
     //Score:  1
     @Test
     public void testAddElementEndOfMiddleRowGet() {
-        firstMatrix.setSize(3);
+        firstMatrix.setSize(3,3);
         firstMatrix.addElement(0, 0, 3);
         firstMatrix.addElement(2, 1, 5);
 
@@ -158,7 +161,7 @@ class RedoTest {
     //Score:  1
     @Test
     public void testAddElementEndOfLastRowGet() {
-        firstMatrix.setSize(2);
+        firstMatrix.setSize(2,2);
         firstMatrix.addElement(0, 0, 1);
         firstMatrix.addElement(1, 0, 3);
         firstMatrix.addElement(1, 1, 4);
@@ -172,7 +175,7 @@ class RedoTest {
     //Score:  1
     @Test
     public void testAddElementHeadOfFirstRowString() {
-        firstMatrix.setSize(3);
+        firstMatrix.setSize(3,3);
         firstMatrix.addElement(0, 0, 4);
 
         if ("0 0 4\n".equals(firstMatrix.toString()))
@@ -183,7 +186,7 @@ class RedoTest {
     //Score:  1
     @Test
     public void testAddElementHeadOfMiddleRowString() {
-        firstMatrix.setSize(3);
+        firstMatrix.setSize(3,3);
         firstMatrix.addElement(0, 0, 3);
         firstMatrix.addElement(2, 1, 5);
 
@@ -200,7 +203,7 @@ class RedoTest {
     //Score:  1
     @Test
     public void testAddElementMiddleOfMiddleRowString() {
-        firstMatrix.setSize(3);
+        firstMatrix.setSize(3,3);
         firstMatrix.addElement(0, 0, 3);
         firstMatrix.addElement(2, 1, 5);
 
@@ -216,7 +219,7 @@ class RedoTest {
     //Score:  1
     @Test
     public void testAddElementEndOfMiddleRowString() {
-        firstMatrix.setSize(3);
+        firstMatrix.setSize(3,3);
         firstMatrix.addElement(0, 0, 3);
         firstMatrix.addElement(2, 1, 5);
 
@@ -232,7 +235,7 @@ class RedoTest {
     //Score:  1
     @Test
     public void testAddElementEndOfLastRowString() {
-        firstMatrix.setSize(2);
+        firstMatrix.setSize(2,2);
         firstMatrix.addElement(0, 0, 1);
         firstMatrix.addElement(1, 0, 3);
         firstMatrix.addElement(1, 1, 4);
@@ -245,7 +248,7 @@ class RedoTest {
     //Score:  1
     @Test
     public void testRemoveElementHeadOfFirstRowGet() {
-        firstMatrix.setSize(3);
+        firstMatrix.setSize(3,3);
         firstMatrix.addElement(0, 0, 4);
         firstMatrix.addElement(0, 1, 5);
 
@@ -259,7 +262,7 @@ class RedoTest {
     //Score:  1
     @Test
     public void testRemoveLastElementInMatrixGet() {
-        firstMatrix.setSize(3);
+        firstMatrix.setSize(3,3);
         firstMatrix.addElement(0, 0, 4);
 
         firstMatrix.removeElement(0, 0);
@@ -272,7 +275,7 @@ class RedoTest {
     //Score:  1
     @Test
     public void testRemoveElementHeadOfMiddleRowGet() {
-        firstMatrix.setSize(3);
+        firstMatrix.setSize(3,3);
         firstMatrix.addElement(0, 0, 3);
         firstMatrix.addElement(2, 1, 5);
 
@@ -291,7 +294,7 @@ class RedoTest {
     //Score:  1
     @Test
     public void testRemoveElementMiddleOfMiddleRowGet() {
-        firstMatrix.setSize(3);
+        firstMatrix.setSize(3,3);
         firstMatrix.addElement(0, 0, 3);
         firstMatrix.addElement(2, 1, 5);
 
@@ -310,7 +313,7 @@ class RedoTest {
     //Score:  1
     @Test
     public void testRemoveElementEndOfMiddleRowGet() {
-        firstMatrix.setSize(3);
+        firstMatrix.setSize(3,3);
         firstMatrix.addElement(0, 0, 3);
         firstMatrix.addElement(2, 1, 5);
 
@@ -329,7 +332,7 @@ class RedoTest {
     //Score:  1
     @Test
     public void testRemoveElementEndOfLastRowGet() {
-        firstMatrix.setSize(2);
+        firstMatrix.setSize(2,2);
         firstMatrix.addElement(0, 0, 1);
         firstMatrix.addElement(1, 0, 3);
         firstMatrix.addElement(1, 1, 4);
@@ -344,7 +347,7 @@ class RedoTest {
     //Score:  1
     @Test
     public void testRemoveElementHeadOfFirstRowString() {
-        firstMatrix.setSize(3);
+        firstMatrix.setSize(3,3);
         firstMatrix.addElement(0, 0, 4);
         firstMatrix.addElement(0, 1, 5);
 
@@ -358,7 +361,7 @@ class RedoTest {
     //Score:  1
     @Test
     public void testRemoveLastElementInMatrixString() {
-        firstMatrix.setSize(3);
+        firstMatrix.setSize(3,3);
         firstMatrix.addElement(0, 0, 4);
 
         firstMatrix.removeElement(0, 0);
@@ -370,7 +373,7 @@ class RedoTest {
     //Score:  1
     @Test
     public void testRemoveElementHeadOfMiddleRowString() {
-        firstMatrix.setSize(3);
+        firstMatrix.setSize(3,3);
         firstMatrix.addElement(0, 0, 3);
         firstMatrix.addElement(2, 1, 5);
 
@@ -388,7 +391,7 @@ class RedoTest {
     //Score:  1
     @Test
     public void testRemoveElementMiddleOfMiddleRowString() {
-        firstMatrix.setSize(3);
+        firstMatrix.setSize(3,3);
         firstMatrix.addElement(0, 0, 3);
         firstMatrix.addElement(2, 1, 5);
 
@@ -406,7 +409,7 @@ class RedoTest {
     //Score:  1
     @Test
     public void testRemoveElementEndOfMiddleRowString() {
-        firstMatrix.setSize(3);
+        firstMatrix.setSize(3,3);
         firstMatrix.addElement(0, 0, 3);
         firstMatrix.addElement(2, 1, 5);
 
@@ -424,7 +427,7 @@ class RedoTest {
     //Score:  1
     @Test
     public void testRemoveElementEndOfLastRowString() {
-        firstMatrix.setSize(2);
+        firstMatrix.setSize(2,2);
         firstMatrix.addElement(0, 0, 1);
         firstMatrix.addElement(1, 0, 3);
         firstMatrix.addElement(1, 1, 4);
@@ -460,6 +463,7 @@ class RedoTest {
         assertEquals(0, firstMatrix.getElement(1, 1));
     }
 
+    /*
     //Score:  1
     @Test
     public void testGetSize() {
@@ -469,12 +473,13 @@ class RedoTest {
             System.out.println(1);
         assertEquals(9, firstMatrix.getSize());
     }
+    */
 
-/*
+
     //Score:  3
     @Test
     public void testSize() {
-        firstMatrix.setSize(3);
+        firstMatrix.setSize(3,3);
         int[][] matrix = {
                 {2,1,3},
                 {1,2,4},
@@ -482,7 +487,7 @@ class RedoTest {
         };
         this.add2DMatrix(matrix, firstMatrix);
 
-        secondMatrix.setSize(2);
+        secondMatrix.setSize(2,2);
         int[][] matrix2 = {
                 {0,2},
                 {9,3}
@@ -497,7 +502,7 @@ class RedoTest {
     //Score:  5
     @Test
     public void testAddMatrix3x3() {
-        firstMatrix.setSize(3);
+        firstMatrix.setSize(3,3);
         int[][] matrix = {
                 {0, 1, 4},
                 {2, 9, 0},
@@ -506,7 +511,7 @@ class RedoTest {
         this.add2DMatrix(matrix, firstMatrix);
 
 
-        secondMatrix.setSize(3);
+        secondMatrix.setSize(3,3);
         int[][] matrix2 = {
                 {3, 0, 2},
                 {9, 1, 3},
@@ -514,7 +519,7 @@ class RedoTest {
         };
         this.add2DMatrix(matrix2, secondMatrix);
 
-        expectedResult.setSize(3);
+        expectedResult.setSize(3,3);
         int[][] matrix3 = {
                 {3, 1, 6},
                 {11, 10, 3},
@@ -532,7 +537,7 @@ class RedoTest {
     //Score: 5
     @Test
     public void testAddMatrix4x4() {
-        firstMatrix.setSize(4);
+        firstMatrix.setSize(4,4);
         int[][] matrix = {
                 {0,7,8,0},
                 {2,8,6,5},
@@ -543,7 +548,7 @@ class RedoTest {
         this.add2DMatrix(matrix, firstMatrix);
 
 
-        secondMatrix.setSize(4);
+        secondMatrix.setSize(4,4);
         int[][] matrix2 = {
                 {0,8,5,4},
                 {6,8,9,0},
@@ -552,7 +557,7 @@ class RedoTest {
         };
         this.add2DMatrix(matrix2, secondMatrix);
 
-        expectedResult.setSize(4);
+        expectedResult.setSize(4,4);
         int[][] matrix3 = {
                 {0,15,13,4},
                 {8,16,15,5},
@@ -571,7 +576,7 @@ class RedoTest {
     //Score:  5
     @Test
     public void testAddMatrix5x5() {
-        firstMatrix.setSize(5);
+        firstMatrix.setSize(5,5);
         int[][] matrix = {
                 {1,2,4,5,2},
                 {4,6,2,4,5},
@@ -582,7 +587,7 @@ class RedoTest {
         };
         this.add2DMatrix(matrix, firstMatrix);
 
-        secondMatrix.setSize(5);
+        secondMatrix.setSize(5,5);
         int[][] matrix2 = {
                 {-1,-2,-4,-5,-2},
                 {-4,-6,-2,-4,-5},
@@ -592,7 +597,7 @@ class RedoTest {
         };
         this.add2DMatrix(matrix2, secondMatrix);
 
-        expectedResult.setSize(5);
+        expectedResult.setSize(5,5);
         int[][] matrix3 = {
                 {0,0,0,0,0},
                 {0,0,0,0,0},
@@ -612,7 +617,7 @@ class RedoTest {
     //Score:  5
     @Test
     public void testMultiply() {
-        firstMatrix.setSize(4);
+        firstMatrix.setSize(4,4);
         int[][] matrix = {
                 {8,8,6,9},
                 {7,8,9,0},
@@ -621,7 +626,7 @@ class RedoTest {
         };
         this.add2DMatrix(matrix, firstMatrix);
 
-        secondMatrix.setSize(4);
+        secondMatrix.setSize(4,4);
         int[][] matrix2 = {
                 {0,9,7,6},
                 {4,7,9,9},
@@ -630,7 +635,7 @@ class RedoTest {
         };
         this.add2DMatrix(matrix2, secondMatrix);
 
-        expectedResult.setSize(4);
+        expectedResult.setSize(4,4);
         int[][] matrix3 = {
                 {128,230,236,243},
                 {95,164,175,177},
@@ -647,7 +652,7 @@ class RedoTest {
     //Score:  5
     @Test
     public void testMultiply2() {
-        firstMatrix.setSize(4);
+        firstMatrix.setSize(4,4);
         int[][] matrix = {
                 {22,12,2,1},
                 {4,3,12,3},
@@ -657,7 +662,7 @@ class RedoTest {
         this.add2DMatrix(matrix, firstMatrix);
 
 
-        secondMatrix.setSize(4);
+        secondMatrix.setSize(4,4);
         int[][] matrix2 = {
                 {0,2,12,1},
                 {44,3,22,1},
@@ -666,7 +671,7 @@ class RedoTest {
         };
         this.add2DMatrix(matrix2, secondMatrix);
 
-        expectedResult.setSize(4);
+        expectedResult.setSize(4,4);
         int[][] matrix3 = {
                 {543,130,592,43},
                 {195,305,342,52},
@@ -684,7 +689,7 @@ class RedoTest {
     //Score:  5
     @Test
     public void testMultiply3() {
-        firstMatrix.setSize(3);
+        firstMatrix.setSize(3,3);
         int[][] matrix = {
                 {2,1,9},
                 {8,7,6},
@@ -693,7 +698,7 @@ class RedoTest {
         this.add2DMatrix(matrix, firstMatrix);
 
 
-        secondMatrix.setSize(3);
+        secondMatrix.setSize(3,3);
         int[][] matrix2 = {
                 {0,2,3},
                 {9,3,6},
@@ -701,7 +706,7 @@ class RedoTest {
         };
         this.add2DMatrix(matrix2, secondMatrix);
 
-        expectedResult.setSize(3);
+        expectedResult.setSize(3,3);
         int[][] matrix3 = {
                 {45,16,39},
                 {87,43,84},
@@ -715,7 +720,7 @@ class RedoTest {
         assertEquals(result.toString(), expectedResult.toString());
     }
 
-*/
+
 
 
     public void add2DMatrix(int[][] matrix, SparseInterface sparseMatrix) {

@@ -1,4 +1,4 @@
-public interface SparseInterface {
+public interface P1SparseInterface {
 
     //STUDENTS:  DO NOT ALTER.  THIS WILL BE USED TO TEST YOUR CODE
 
@@ -9,20 +9,14 @@ public interface SparseInterface {
 
 
     /*
-        Sets  size of the matrix.  Number of rows, number of columns.
+        Sets maximum size of the matrix, should also clear the matrix (make all elements 0)
      */
+    public void setSize(int size);
 
-    public void setSize(int numRows, int numCols);
-
-
-    public int getNumRows();
-
-    public int getNumCols();
 
     /*
         Adds an element to the row and column passed as arguments (overwrites if element is already present at that position).
         Throws an error if row/column combination is out of bounds.
-        Checks to see if element has a value of zero before creating
      */
     public void addElement(int row, int col, int data);
 
@@ -39,6 +33,16 @@ public interface SparseInterface {
         Throws an error if row/column combination is out of bounds.
      */
     public int getElement(int row, int col);
+
+    /*
+        Returns the determinant of the matrix calculated recursively (Use the formula provided in the project description).
+     */
+    public int determinant();
+
+    /*
+        Returns a new matrix which is the minor of the original (See project description for minor definition).
+     */
+    public P1SparseInterface minor(int row, int col);
 
     /*
     Should return the nonzero elements of your sparse matrix as a string.
@@ -61,11 +65,14 @@ public interface SparseInterface {
     public String toString();
 
 
-    /*takes another matrix as input and returns the sum of the two matrices*/
-    /*return NULL if sizes incompatible*/
-    public SparseInterface addMatrices(SparseInterface matrixToAdd);
-
-    /*takes another matrix as input and returns the product of the two matrices*/
-    /*return NULL if sizes incompatible*/
-    public SparseInterface multiplyMatrices(SparseInterface matrixToMultiply);
+    /*
+    Should return the size of the matrix.
+     */
+    public int getSize();
+/*
+    /*takes another matrix as input and returns the sum of the two matrices
+    public P1SparseInterface addMatrices(P1SparseInterface matrixToAdd);
+    /*takes another matrix as input and returns the product of the two matrices
+    public P1SparseInterface multiplyMatrices(P1SparseInterface matrixToMultiply);
+    */
 }

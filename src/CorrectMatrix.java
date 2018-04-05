@@ -1,4 +1,4 @@
-public class CorrectMatrix implements SparseInterface {
+public class CorrectMatrix implements P1SparseInterface {
 
     private RowNode head;
     private int size;
@@ -288,7 +288,7 @@ public class CorrectMatrix implements SparseInterface {
         return (a*d) - (b*c);
     }
 
-    public SparseInterface minor(int row, int col){
+    public P1SparseInterface minor(int row, int col){
         CorrectMatrix minorMatrix = new CorrectMatrix(this.size-1);
         RowNode currRow = this.head;
         ColNode currCol;
@@ -377,12 +377,12 @@ public class CorrectMatrix implements SparseInterface {
     }
 /*
     @Override
-    public SparseInterface addMatrices(SparseInterface matrixToAdd) {
+    public P1SparseInterface addMatrices(P1SparseInterface matrixToAdd) {
         return null;
     }
 
     @Override
-    public SparseInterface multiplyMatrices(SparseInterface matrixToMultiply) {
+    public P1SparseInterface multiplyMatrices(P1SparseInterface matrixToMultiply) {
         return null;
     }
     */

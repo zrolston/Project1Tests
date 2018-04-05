@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertTimeoutPreemptively;
 
 
 class SparseInterfaceTest {
-    public SparseInterface myTest = new SingleListMatrix();
+    public P1SparseInterface myTest = new SingleListMatrix();
     public int score;
 
 
@@ -553,7 +553,7 @@ class SparseInterfaceTest {
                 {1, 4, 3}
         };
         this.addTwoDMatrix(matrix);
-        SparseInterface minor;
+        P1SparseInterface minor;
         minor = myTest.minor(0, 0);
         assertEquals(2, minor.getSize());
         assertEquals(6, minor.getElement(0, 0));
