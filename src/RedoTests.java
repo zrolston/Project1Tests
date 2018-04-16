@@ -463,17 +463,27 @@ class RedoTest {
         assertEquals(0, firstMatrix.getElement(1, 1));
     }
 
-    /*
+
     //Score:  1
     @Test
-    public void testGetSize() {
-        firstMatrix.setSize(9);
+    public void testNumRow() {
+        firstMatrix.setSize(9, 6);
 
-        if (9 == firstMatrix.getSize())
+        if (9 == firstMatrix.getNumRows())
             System.out.println(1);
-        assertEquals(9, firstMatrix.getSize());
+        assertEquals(9, firstMatrix.getNumRows());
     }
-    */
+
+    //Score:  1
+    @Test
+    public void testNumCols() {
+        firstMatrix.setSize(9, 6);
+
+        if (9 == firstMatrix.getNumRows())
+            System.out.println(1);
+        assertEquals(6, firstMatrix.getNumCols());
+    }
+
 
 
     //Score:  3
@@ -720,10 +730,55 @@ class RedoTest {
         assertEquals(result.toString(), expectedResult.toString());
     }
 
+    //Score:  5
+    @Test
+    public void testMultiply4() {
+        firstMatrix.setSize(2,4);
+        firstMatrix.addElement(0, 0, 2);
+        firstMatrix.addElement(0, 1, 27);
+        firstMatrix.addElement(0, 2, 8);
+        firstMatrix.addElement(0, 3, 5);
+        firstMatrix.addElement(1, 0, 0);
+        firstMatrix.addElement(1, 1, 6);
+        firstMatrix.addElement(1, 2, 4);
+        firstMatrix.addElement(1, 3, 7);
 
 
 
-    public void add2DMatrix(int[][] matrix, SparseInterface sparseMatrix) {
+        secondMatrix.setSize(4,3);
+        secondMatrix.addElement(0, 0, 7);
+        secondMatrix.addElement(0, 1, 8);
+        secondMatrix.addElement(0, 2, 6);
+        secondMatrix.addElement(1, 0, 4);
+        secondMatrix.addElement(1, 1, 7);
+        secondMatrix.addElement(1, 2, 9);
+        secondMatrix.addElement(2, 0, 5);
+        secondMatrix.addElement(2, 1, 43);
+        secondMatrix.addElement(2, 2, 8);
+        secondMatrix.addElement(3, 0, 0);
+        secondMatrix.addElement(3, 1, 8);
+        secondMatrix.addElement(3, 2, 5);
+
+
+        expectedResult.setSize(2,3);
+        expectedResult.addElement(0,0, 162);
+        expectedResult.addElement(0,1, 589);
+        expectedResult.addElement(0,2, 344);
+        expectedResult.addElement(1,0, 44);
+        expectedResult.addElement(1,1, 270);
+        expectedResult.addElement(1,2, 121);
+
+        SparseInterface result = firstMatrix.multiplyMatrices(secondMatrix);
+        //if(result.toString().equals(expectedResult.toString()))
+           // System.out.println(5);
+        assertEquals(result.toString(), expectedResult.toString());
+    }
+
+
+
+
+
+        public void add2DMatrix(int[][] matrix, SparseInterface sparseMatrix) {
         for (int i = 0; i < matrix.length; ++i) {
             for (int j = 0; j < matrix.length; ++j) {
                 sparseMatrix.addElement(i, j, matrix[i][j]);
