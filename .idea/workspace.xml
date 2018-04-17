@@ -4,12 +4,11 @@
     <list default="true" id="7d5d0876-4f82-4490-9a91-8d10a9f5fe32" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/out/production/Project1Test/SingleListMatrix.class" afterPath="$PROJECT_DIR$/out/production/Project1Test/SingleListMatrix.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project1Test/SparseInterface.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/CorrectMatrix.java" afterPath="$PROJECT_DIR$/src/CorrectMatrix.java" />
+      <change beforePath="$PROJECT_DIR$/src/P1SparseInterface.java" afterPath="$PROJECT_DIR$/src/P1SparseInterface.java" />
+      <change beforePath="$PROJECT_DIR$/src/P1SparseInterfaceTest.java" afterPath="$PROJECT_DIR$/src/P1SparseInterfaceTest.java" />
       <change beforePath="$PROJECT_DIR$/src/RedoTests.java" afterPath="$PROJECT_DIR$/src/RedoTests.java" />
       <change beforePath="$PROJECT_DIR$/src/SingleListMatrix.java" afterPath="$PROJECT_DIR$/src/SingleListMatrix.java" />
-      <change beforePath="$PROJECT_DIR$/src/SparseInterface.java" afterPath="$PROJECT_DIR$/src/P1SparseInterface.java" />
-      <change beforePath="$PROJECT_DIR$/src/SparseInterfaceTest.java" afterPath="$PROJECT_DIR$/src/P1SparseInterfaceTest.java" />
+      <change beforePath="$PROJECT_DIR$/src/SparseMatrix.java" afterPath="" />
       <change beforePath="$PROJECT_DIR$/src/Test.java" afterPath="$PROJECT_DIR$/src/Test.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -39,11 +38,9 @@
       <file leaf-file-name="P1SparseInterfaceTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/P1SparseInterfaceTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="552" column="25" lean-forward="true" selection-start-line="552" selection-start-column="25" selection-end-line="552" selection-end-column="25" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="484">
+              <caret line="93" column="13" lean-forward="true" selection-start-line="87" selection-start-column="8" selection-end-line="93" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -51,18 +48,18 @@
       <file leaf-file-name="SparseInterface.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SparseInterface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-648">
-              <caret line="6" column="7" lean-forward="true" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
+            <state relative-caret-position="1407">
+              <caret line="67" column="63" lean-forward="false" selection-start-line="67" selection-start-column="63" selection-end-line="67" selection-end-column="63" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RedoTests.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RedoTests.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/RedoTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1775">
-              <caret line="423" column="0" lean-forward="false" selection-start-line="423" selection-start-column="0" selection-end-line="423" selection-end-column="0" />
+            <state relative-caret-position="168">
+              <caret line="8" column="58" lean-forward="false" selection-start-line="8" selection-start-column="58" selection-end-line="8" selection-end-column="58" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -73,8 +70,8 @@
       <file leaf-file-name="Test.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1095">
-              <caret line="73" column="5" lean-forward="false" selection-start-line="73" selection-start-column="5" selection-end-line="73" selection-end-column="5" />
+            <state relative-caret-position="364">
+              <caret line="57" column="0" lean-forward="true" selection-start-line="0" selection-start-column="2" selection-end-line="74" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -83,39 +80,18 @@
       <file leaf-file-name="SingleListMatrix.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SingleListMatrix.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="29" lean-forward="false" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
+            <state relative-caret-position="2437">
+              <caret line="249" column="1" lean-forward="true" selection-start-line="249" selection-start-column="1" selection-end-line="249" selection-end-column="1" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SparseMatrix.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/SparseMatrix.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-              <folding>
-                <element signature="e#347#348#0" expanded="true" />
-                <element signature="e#371#372#0" expanded="true" />
-                <element signature="e#416#417#0" expanded="true" />
-                <element signature="e#440#441#0" expanded="true" />
-                <element signature="e#652#653#0" expanded="true" />
-                <element signature="e#676#677#0" expanded="true" />
-                <element signature="e#761#762#0" expanded="true" />
-                <element signature="e#788#789#0" expanded="true" />
-                <element signature="e#883#884#0" expanded="true" />
-                <element signature="e#910#911#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="P1SparseInterface.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="P1SparseInterface.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/P1SparseInterface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="7" lean-forward="false" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
+            <state relative-caret-position="174">
+              <caret line="10" column="8" lean-forward="true" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -160,21 +136,21 @@
         <option value="$PROJECT_DIR$/src/sparseMatrix.java" />
         <option value="$PROJECT_DIR$/src/SparseMatrixTest.java" />
         <option value="$PROJECT_DIR$/src/proj1-1.java" />
-        <option value="$PROJECT_DIR$/src/Test.java" />
         <option value="$PROJECT_DIR$/src/CorrectMatrix.java" />
         <option value="$PROJECT_DIR$/src/src/CorrectMatrix.java" />
-        <option value="$PROJECT_DIR$/src/SingleListMatrix.java" />
         <option value="$PROJECT_DIR$/src/Node.java" />
         <option value="$PROJECT_DIR$/src/SparseInterfaceTest.java" />
-        <option value="$PROJECT_DIR$/src/P1SparseInterface.java" />
-        <option value="$PROJECT_DIR$/src/P1SparseInterfaceTest.java" />
         <option value="$PROJECT_DIR$/src/SparseInterface.java" />
         <option value="$PROJECT_DIR$/src/SparseMatrix.java" />
+        <option value="$PROJECT_DIR$/src/SingleListMatrix.java" />
+        <option value="$PROJECT_DIR$/src/P1SparseInterfaceTest.java" />
+        <option value="$PROJECT_DIR$/src/Test.java" />
         <option value="$PROJECT_DIR$/src/RedoTests.java" />
+        <option value="$PROJECT_DIR$/src/P1SparseInterface.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-1" />
     <option name="y" value="22" />
     <option name="width" value="1440" />
@@ -196,21 +172,25 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="Project1Tests" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Project1Tests" type="462c0819:PsiDirectoryNode" />
+              <item name="Project1Test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Project1Test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Project1Tests" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Project1Tests" type="462c0819:PsiDirectoryNode" />
+              <item name="Project1Test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Project1Test" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Project1Tests" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Project1Tests" type="462c0819:PsiDirectoryNode" />
+              <item name="Project1Test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Project1Test" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="RedoTests.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
             </path>
@@ -218,10 +198,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -455,9 +431,9 @@
       <predefined_log_file id="idea.log" enabled="true" />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.SparseInterfaceTest" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.RedoTest" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.RedoTest.testDiffrentSizes" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.P1SparseInterfaceTest" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.SparseInterfaceTest" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.RedoTest" />
       <item index="3" class="java.lang.String" itemvalue="JUnit.RedoTest.testDifferentSizes" />
       <item index="4" class="java.lang.String" itemvalue="JUnit.P1SparseInterfaceTest.testDeterminantOne" />
     </list>
@@ -488,17 +464,17 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="RedoTest - 2018.04.05 at 17h 33m 49s.xml">
+    <history-entry file="RedoTest - 2018.04.16 at 18h 07m 52s.xml">
       <configuration name="RedoTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SparseInterfaceTest - 2018.03.30 at 16h 49m 08s.xml">
-      <configuration name="SparseInterfaceTest" configurationId="JUnit" />
+    <history-entry file="RedoTest - 2018.04.16 at 18h 24m 28s.xml">
+      <configuration name="RedoTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SparseInterfaceTest - 2018.03.31 at 16h 22m 57s.xml">
-      <configuration name="SparseInterfaceTest" configurationId="JUnit" />
+    <history-entry file="RedoTest - 2018.04.16 at 19h 46m 47s.xml">
+      <configuration name="RedoTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SparseInterfaceTest - 2018.03.31 at 16h 23m 24s.xml">
-      <configuration name="SparseInterfaceTest" configurationId="JUnit" />
+    <history-entry file="RedoTest - 2018.04.16 at 19h 56m 24s.xml">
+      <configuration name="RedoTest" configurationId="JUnit" />
     </history-entry>
     <history-entry file="SparseInterfaceTest - 2018.04.05 at 14h 43m 41s.xml">
       <configuration name="SparseInterfaceTest" configurationId="JUnit" />
@@ -520,23 +496,22 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="22" width="1440" height="746" extended-state="0" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32718894" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32707182" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2857143" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28508288" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14091559" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32872504" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.104166664" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -549,6 +524,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32872504" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -591,12 +567,6 @@
           <line>43</line>
           <properties />
           <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/RedoTests.java</url>
-          <line>496</line>
-          <properties />
-          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
       <option name="time" value="21" />
@@ -745,30 +715,6 @@
     <entry file="file://$PROJECT_DIR$/src/matrixNode.java" />
     <entry file="file://$PROJECT_DIR$/src/IndexNode.java" />
     <entry file="file://$PROJECT_DIR$/src/Node.java" />
-    <entry file="file://$PROJECT_DIR$/src/SingleListMatrix.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="29" lean-forward="false" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1095">
-          <caret line="73" column="5" lean-forward="false" selection-start-line="73" selection-start-column="5" selection-end-line="73" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/P1SparseInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="7" lean-forward="false" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/CorrectMatrix.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -777,50 +723,61 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/P1SparseInterfaceTest.java">
+    <entry file="file://$PROJECT_DIR$/src/SparseMatrix.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="552" column="25" lean-forward="true" selection-start-line="552" selection-start-column="25" selection-end-line="552" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="210">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SparseMatrix.java">
+    <entry file="file://$PROJECT_DIR$/src/SingleListMatrix.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding>
-            <element signature="e#347#348#0" expanded="true" />
-            <element signature="e#371#372#0" expanded="true" />
-            <element signature="e#416#417#0" expanded="true" />
-            <element signature="e#440#441#0" expanded="true" />
-            <element signature="e#652#653#0" expanded="true" />
-            <element signature="e#676#677#0" expanded="true" />
-            <element signature="e#761#762#0" expanded="true" />
-            <element signature="e#788#789#0" expanded="true" />
-            <element signature="e#883#884#0" expanded="true" />
-            <element signature="e#910#911#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="2437">
+          <caret line="249" column="1" lean-forward="true" selection-start-line="249" selection-start-column="1" selection-end-line="249" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="57" column="0" lean-forward="true" selection-start-line="0" selection-start-column="2" selection-end-line="74" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/P1SparseInterfaceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="93" column="13" lean-forward="true" selection-start-line="87" selection-start-column="8" selection-end-line="93" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/SparseInterface.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-648">
-          <caret line="6" column="7" lean-forward="true" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
+        <state relative-caret-position="1407">
+          <caret line="67" column="63" lean-forward="false" selection-start-line="67" selection-start-column="63" selection-end-line="67" selection-end-column="63" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/RedoTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1775">
-          <caret line="423" column="0" lean-forward="false" selection-start-line="423" selection-start-column="0" selection-end-line="423" selection-end-column="0" />
+        <state relative-caret-position="168">
+          <caret line="8" column="58" lean-forward="false" selection-start-line="8" selection-start-column="58" selection-end-line="8" selection-end-column="58" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/P1SparseInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="10" column="8" lean-forward="true" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>

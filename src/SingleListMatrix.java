@@ -1,4 +1,4 @@
-public class SingleListMatrix implements P1SparseInterface {
+public class SingleListMatrix implements SparseInterface {
 
     //For all time complexities within n is the size of the matrix (n=5 if the matrix is 5x5)
 
@@ -16,25 +16,23 @@ public class SingleListMatrix implements P1SparseInterface {
         }
     }
 
-    int size;
+    int numRows;
+    int numCols;
     MatrixNode[] heads;
 
-    SingleListMatrix(){
-        this.setSize(5);
-    }
-
-    SingleListMatrix(int i){
-        this.setSize(i);
+    SingleListMatrix(int numRows, int numCols){
+        this.setSize(numRows, numCols);
     }
 
     @Override
     public void clear() {
-        heads = new MatrixNode[this.size];
+        heads = new MatrixNode[this.numRows];
     }
 
     @Override
-    public void setSize(int size) {
-        this.size = size;
+    public void setSize(int rows, int cols) {
+        this.numCols = cols;
+        this.numRows = rows;
         this.clear();
     }
 
@@ -42,7 +40,7 @@ public class SingleListMatrix implements P1SparseInterface {
     @Override
     public void addElement(int row, int col, int data) {
 
-        if(0 > row && 0 > col && row > size && col > size){
+        if(0 > row && 0 > col && row > numRows && col > numCols){
             throw new IndexOutOfBoundsException();
         }
 
@@ -108,7 +106,7 @@ public class SingleListMatrix implements P1SparseInterface {
     //Time complexity the same as add for the same reasons, though in this cases it is an O(1) removal.
     @Override
     public void removeElement(int row, int col) {
-        if(0 > row && 0 > col && row > size && col > size){
+        if(0 > row && 0 > col && row > numRows && col > numCols){
             throw new IndexOutOfBoundsException();
         }
 
@@ -168,90 +166,30 @@ public class SingleListMatrix implements P1SparseInterface {
         return 0;
     }
 
-    //O(n!) due to the recursive nature of the function as well as the call to minor.
     @Override
-    public int determinant() {
-        if(this.size == 0){
-            return 0;
-        }
-        if(this.size == 1){
-            return this.getElement(0,0);
-        }
-
-        int sum = 0;
-        MatrixNode curr = heads[0];
-
-        //We only need to iterate over a single row
-        //In this case we choose the 0th row because it will always exist in a matrix of size 1 or more
-        //Since 0 values don't matter we can just iterate over the stored nodes.
-        while (curr != null){
-            sum += (int)Math.pow(-1, curr.row + curr.col) * curr.data * this.minor(curr.row, curr.col).determinant();
-            curr = curr.next;
-        }
-
-        return sum;
+    public int getNumRows() {
+        return this.numRows;
     }
 
-    //O(n^3) for reasons explained within the method.
+
     @Override
-    public P1SparseInterface minor(int row, int col) {
-        MatrixNode curr;
-
-        int newRow = 0;
-        int newCol = 0;
-        int data = 0;
-
-        SingleListMatrix minor = new SingleListMatrix(this.size-1);
-
-        for(int i = 0; i < this.size; i++){
-            curr = heads[i];
-            while(curr != null){
-                //If it falls on the deleted row or column then skip it.
-                if(curr.row == row || curr.col == col){
-                    curr = curr.next;
-                    continue;
-                }
-
-                newRow = curr.row;
-                newCol = curr.col;
-                data = curr.data;
-
-                //Adjust coordinate for new matrix.
-                if(newRow > row){
-                    newRow--;
-                }
-                if(newCol > col){
-                    newCol--;
-                }
-
-                //Add is an O(n) operation, because it is called at most n^2 times this
-                //makes the minor method O(n^3)
-                minor.addElement(newRow, newCol, data);
-                curr = curr.next;
-            }
-        }
-
-        return minor;
+    public int getNumCols() {
+        return this.numCols;
     }
 
     @Override
-    public int getSize() {
-        return this.size;
-    }
-/*
-    @Override
-    public P1SparseInterface addMatrices(P1SparseInterface matrixToAdd) {
-        if(this.size != matrixToAdd.getSize()){
+    public SparseInterface addMatrices(SparseInterface matrixToAdd) {
+        if(this.numRows != matrixToAdd.getNumRows() && this.numCols != matrixToAdd.getNumCols()){
             return null;
         }
 
-        P1SparseInterface sumMatrix = new SingleListMatrix(this.size);
+        SparseInterface sumMatrix = new SingleListMatrix(this.numRows, this.numCols);
 
         int myElement = 0;
         int newElement = 0;
 
-        for(int i = 0; i < this.size; i++){
-            for(int j = 0; j < this.size; j++){
+        for(int i = 0; i < this.numRows; i++){
+            for(int j = 0; j < this.numCols; j++){
                 myElement = this.getElement(i,j);
                 newElement = matrixToAdd.getElement(i,j);
                 if(myElement + newElement != 0){
@@ -264,20 +202,20 @@ public class SingleListMatrix implements P1SparseInterface {
     }
 
     @Override
-    public P1SparseInterface multiplyMatrices(P1SparseInterface matrixToMultiply) {
-        if (this.size != matrixToMultiply.getSize()) {
+    public SparseInterface multiplyMatrices(SparseInterface matrixToMultiply) {
+        if (this.numCols != matrixToMultiply.getNumRows()) {
             return null;
         }
 
-        P1SparseInterface productMatrix = new SingleListMatrix(this.size);
+        SparseInterface productMatrix = new SingleListMatrix(this.numRows, matrixToMultiply.getNumCols());
 
         int elementSum;
 
-        for(int i = 0; i < this.size; i++){
-            for(int j = 0; j < matrixToMultiply.getSize(); j++){
+        for(int i = 0; i < this.numRows; i++){
+            for(int j = 0; j < matrixToMultiply.getNumCols(); j++){
                 elementSum = 0;
 
-                for(int k = 0; k < this.size; k++){
+                for(int k = 0; k < this.numCols; k++){
                     elementSum += this.getElement(i, k) * matrixToMultiply.getElement(k, j);
                 }
 
@@ -290,13 +228,13 @@ public class SingleListMatrix implements P1SparseInterface {
         return productMatrix;
     }
 
-*/
+
     //O(n^2) since in the worst case we traverse a full matrix.
     @Override
     public String toString() {
         MatrixNode curr = null;
         StringBuilder matrix = new StringBuilder();
-        for(int i = 0; i < this.size; i++){
+        for(int i = 0; i < this.numRows; i++){
             curr = heads[i];
 
             //Because we added nodes in printing order, a simple traversal of each row gives us the appropriate string
