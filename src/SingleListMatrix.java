@@ -177,6 +177,7 @@ public class SingleListMatrix implements SparseInterface {
         return this.numCols;
     }
 
+    
     @Override
     public SparseInterface addMatrices(SparseInterface matrixToAdd) {
         if(this.numRows != matrixToAdd.getNumRows() && this.numCols != matrixToAdd.getNumCols()){
@@ -246,5 +247,4 @@ public class SingleListMatrix implements SparseInterface {
 
         return matrix.toString();
     }
-
 }

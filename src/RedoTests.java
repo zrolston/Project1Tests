@@ -6,8 +6,8 @@ import static org.junit.jupiter.api.Assertions.assertTimeoutPreemptively;
 
 
 class RedoTest {
-    public SparseInterface firstMatrix = new SparseMatrix();
-    public SparseInterface secondMatrix = new SparseMatrix();
+    public SparseInterface firstMatrix = new SingleListMatrix(5, 5);
+    public SparseInterface secondMatrix = new SingleListMatrix(5, 5);
     public SparseInterface expectedResult = new SingleListMatrix(5, 5);
 
 
